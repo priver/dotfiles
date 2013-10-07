@@ -1,0 +1,5 @@
+[user]
+	name = Mikhail Priver
+	email = m.priver@gmail.com
+[push]
+	default = simple
