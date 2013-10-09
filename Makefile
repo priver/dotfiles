@@ -1,6 +1,7 @@
-install: install-bash install-nano install-git install-xsession
+install: install-bash install-nano install-git
 
 install-bash:
+	ln -sf `pwd`/bash/bash_aliases ~/.bash_aliases
 	ln -sf `pwd`/bash/bashrc ~/.bashrc
 	ln -sf `pwd`/bash/profile ~/.profile
 
