@@ -1,16 +1,16 @@
 install: install-bash install-nano install-git
 
 install-bash:
-	ln -sf `pwd`/bash/bash_aliases ~/.bash_aliases
-	ln -sf `pwd`/bash/bashrc ~/.bashrc
-	ln -sf `pwd`/bash/profile ~/.profile
+	ln -sf $(PWD)/bash/bash_aliases ~/.bash_aliases
+	ln -sf $(PWD)/bash/bashrc ~/.bashrc
+	ln -sf $(PWD)/bash/profile ~/.profile
 
 install-git:
-	ln -sf `pwd`/git/gitconfig ~/.gitconfig
+	ln -sf $(PWD)/git/gitconfig ~/.gitconfig
 
 install-nano:
-	ln -sf `pwd`/nano/nanorc ~/.nanorc
+	ln -sf $(PWD)/nano/nanorc ~/.nanorc
 
 install-xsession:
 	mkdir -p ~/.xsession.d
-	ln -sf `pwd`/xsession/xsessionrc ~/.xsessionrc
+	ln -sf $(PWD)/xsession/xsessionrc ~/.xsessionrc

@@ -1,5 +1,21 @@
 [user]
 	name = Mikhail Priver
 	email = m.priver@gmail.com
+[core]
+	autocrlf = input
 [push]
 	default = simple
+[alias]
+	l = log --graph --oneline --decorate
+	lg = log --pretty=format:'%C(yellow)%h %C(blue bold)%an%Creset: %s %C(green)(%cr)%Creset'
+[color]
+	ui = auto
+[color "diff"]
+	meta = cyan
+	frag = magenta bold
+	old = red bold
+	new = green bold
+[color "status"]
+	added = green
+	changed = yellow
+	untracked = red
