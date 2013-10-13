@@ -41,7 +41,7 @@ else
 fi
 
 if [ -n "$SSH_CONNECTION" ]; then
-    PROMPT_HOST='@\[\e$(ansi_fg_bold $COLOR_MAGENTA)\]\h\[\e$COLOR_RESET\]'
+    PROMPT_HOST='@\[\e$(ansi_fg_bold $COLOR_CYAN)\]\h\[\e$COLOR_RESET\]'
 fi
 
 PROMPT_PATH=':\[\e$(ansi_fg_bold $COLOR_YELLOW)\]\w\[\e$COLOR_RESET\]'

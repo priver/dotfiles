@@ -6,8 +6,8 @@
 [push]
 	default = simple
 [alias]
-	l = log --graph --oneline --decorate
-	lg = log --pretty=format:'%C(yellow)%h %C(blue bold)%an%Creset: %s %C(green)(%cr)%Creset'
+	l = log --pretty=format:'%C(auto)%h%d %C(blue)%an:%C(reset) %s %C(green)(%cr)%C(reset)'
+	lg = log --graph --pretty=format:'%C(auto)%h%d %C(blue)%an:%C(reset) %s %C(green)(%cr)%C(reset)'
 [color]
 	ui = auto
 [color "diff"]
@@ -15,7 +15,3 @@
 	frag = magenta bold
 	old = red bold
 	new = green bold
-[color "status"]
-	added = green
-	changed = yellow
-	untracked = red
