@@ -18,7 +18,7 @@ COLOR_RED=1
 COLOR_GREEN=2
 COLOR_YELLOW=3
 COLOR_BLUE=4
-COLOR_PURPLE=5
+COLOR_MAGENTA=5
 COLOR_CYAN=6
 COLOR_WHITE=7
 
@@ -35,15 +35,18 @@ function ansi_bg {
 }
 
 if [ `id -u` == '0' ]; then
-    USER_COLOR=$COLOR_RED
+    PROMPT_USER='\[\e$(ansi_fg_bold $COLOR_RED)\]\u\[\e$COLOR_RESET\]'
 else
-    USER_COLOR=$COLOR_GREEN
+    PROMPT_USER='\[\e$(ansi_fg_bold $COLOR_GREEN)\]\u\[\e$COLOR_RESET\]'
 fi
 
-PS1='\
-\[\e$(ansi_fg_bold $USER_COLOR)\]\u\[\e$COLOR_RESET\]@\
-\[\e$(ansi_fg_bold $COLOR_CYAN)\]\h\[\e$COLOR_RESET\]:\
-\[\e$(ansi_fg_bold $COLOR_YELLOW)\]\w\[\e$COLOR_RESET\]\$ '
+if [ -n "$SSH_CONNECTION" ]; then
+    PROMPT_HOST='@\[\e$(ansi_fg_bold $COLOR_MAGENTA)\]\h\[\e$COLOR_RESET\]'
+fi
+
+PROMPT_PATH=':\[\e$(ansi_fg_bold $COLOR_YELLOW)\]\w\[\e$COLOR_RESET\]'
+
+PS1="${PROMPT_USER}${PROMPT_HOST}${PROMPT_PATH}\$ "
 
 case "$TERM" in
 xterm*|rxvt*)
