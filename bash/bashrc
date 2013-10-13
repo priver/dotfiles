@@ -62,11 +62,12 @@ esac
 
 PS1="$PROMPT_STRING\$ "
 
-GIT_PS1_SHOWDIRTYSTATE=1
-GIT_PS1_SHOWUNTRACKEDFILES=1
-GIT_PS1_SHOWCOLORHINTS=1
-PROMPT_COMMAND='__git_ps1 "$PROMPT_STRING" "\$ " "[%s]"'
-
+if [ -f /etc/bash_completion.d/git-prompt ]; then
+    GIT_PS1_SHOWDIRTYSTATE=1
+    GIT_PS1_SHOWUNTRACKEDFILES=1
+    GIT_PS1_SHOWCOLORHINTS=1
+    PROMPT_COMMAND='__git_ps1 "$PROMPT_STRING" "\$ " "[%s]"'
+fi
 
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
