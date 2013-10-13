@@ -12,6 +12,10 @@ shopt -s checkwinsize
 
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
+if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
+    . /etc/bash_completion
+fi
+
 COLOR_RESET='[0m'
 COLOR_BLACK=0
 COLOR_RED=1
@@ -46,15 +50,23 @@ fi
 
 PROMPT_PATH=':\[\e$(ansi_fg_bold $COLOR_YELLOW)\]\w\[\e$COLOR_RESET\]'
 
-PS1="${PROMPT_USER}${PROMPT_HOST}${PROMPT_PATH}\$ "
+PROMPT_STRING="${PROMPT_USER}${PROMPT_HOST}${PROMPT_PATH}"
 
 case "$TERM" in
 xterm*|rxvt*)
-    PS1="\[\e]0;\h:\W\a\]$PS1"
+    PROMPT_STRING="\[\e]0;\h:\W\a\]$PROMPT_STRING"
     ;;
 *)
     ;;
 esac
+
+PS1="$PROMPT_STRING\$ "
+
+GIT_PS1_SHOWDIRTYSTATE=1
+GIT_PS1_SHOWUNTRACKEDFILES=1
+GIT_PS1_SHOWCOLORHINTS=1
+PROMPT_COMMAND='__git_ps1 "$PROMPT_STRING" "\$ " "[%s]"'
+
 
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
@@ -66,11 +78,4 @@ fi
 
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
-fi
-
-# enable programmable completion features (you don't need to enable
-# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
-# sources /etc/bash.bashrc).
-if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
-    . /etc/bash_completion
 fi
