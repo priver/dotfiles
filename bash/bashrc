@@ -26,31 +26,29 @@ COLOR_MAGENTA=5
 COLOR_CYAN=6
 COLOR_WHITE=7
 
-function ansi_fg {
+ansi_fg () {
     echo "[3$1m"
 }
 
-function ansi_fg_bold {
+ansi_fg_bold () {
     echo "[1;3$1m"
 }
 
-function ansi_bg {
+ansi_bg () {
     echo "[4$1m"
 }
 
-if [ `id -u` == '0' ]; then
+if [ $(id -u) == '0' ]; then
     PROMPT_USER='\[\e$(ansi_fg_bold $COLOR_RED)\]\u\[\e$COLOR_RESET\]'
 else
     PROMPT_USER='\[\e$(ansi_fg_bold $COLOR_GREEN)\]\u\[\e$COLOR_RESET\]'
 fi
 
-if [ -n "$SSH_CONNECTION" ]; then
-    PROMPT_HOST='@\[\e$(ansi_fg_bold $COLOR_CYAN)\]\h\[\e$COLOR_RESET\]'
-fi
-
+PROMPT_HOST='${SSH_CONNECTION:+@\[\e$(ansi_fg_bold $COLOR_CYAN)\]\h\[\e$COLOR_RESET\]}'
 PROMPT_PATH=':\[\e$(ansi_fg_bold $COLOR_YELLOW)\]\w\[\e$COLOR_RESET\]'
+PROMPT_VIRTUALENV='${VIRTUAL_ENV:+(\[\e$(ansi_fg $COLOR_CYAN)\]$(basename $VIRTUAL_ENV)\[\e$COLOR_RESET\])}'
 
-PROMPT_STRING="${PROMPT_USER}${PROMPT_HOST}${PROMPT_PATH}"
+PROMPT_STRING="${PROMPT_USER}${PROMPT_HOST}${PROMPT_PATH} ${PROMPT_VIRTUALENV}"
 
 case "$TERM" in
 xterm*|rxvt*)
