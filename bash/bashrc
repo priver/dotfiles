@@ -7,6 +7,7 @@ export EDITOR=nano
 export LESS=FRSX
 
 export WORKON_HOME=$HOME/.virtualenvs
+export PROJECT_HOME=$HOME/projects
 export VIRTUAL_ENV_DISABLE_PROMPT=true
 export PIP_REQUIRE_VIRTUALENV=true
 
@@ -84,4 +85,8 @@ fi
 
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
+fi
+
+if [ -f /usr/local/bin/virtualenvwrapper.sh ]; then
+    . /usr/local/bin/virtualenvwrapper.sh
 fi
