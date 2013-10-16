@@ -2,6 +2,7 @@ install: install-bash install-nano install-git
 
 install-bash:
 	ln -sf $(PWD)/bash/bash_aliases ~/.bash_aliases
+	ln -sf $(PWD)/bash/bash_completion ~/.bash_completion
 	ln -sf $(PWD)/bash/bashrc ~/.bashrc
 	ln -sf $(PWD)/bash/profile ~/.profile
 
