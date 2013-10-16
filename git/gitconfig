@@ -9,6 +9,7 @@
 [alias]
 	l = log --pretty=format:'%C(auto)%h%d %C(blue)%an:%C(reset) %s %C(green)(%cr)%C(reset)'
 	lg = log --graph --pretty=format:'%C(auto)%h%d %C(blue)%an:%C(reset) %s %C(green)(%cr)%C(reset)'
+	s = status -bs
 [color]
 	ui = auto
 [color "diff"]
