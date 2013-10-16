@@ -3,6 +3,13 @@
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
+export EDITOR=nano
+export LESS=FRSX
+
+export WORKON_HOME=$HOME/.virtualenvs
+export VIRTUAL_ENV_DISABLE_PROMPT=true
+export PIP_REQUIRE_VIRTUALENV=true
+
 HISTCONTROL=ignoredups
 HISTSIZE=10000
 HISTFILESIZE=10000

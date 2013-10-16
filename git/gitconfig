@@ -3,6 +3,7 @@
 	email = m.priver@gmail.com
 [core]
 	autocrlf = input
+	editor = nano
 [push]
 	default = simple
 [alias]
