@@ -12,6 +12,10 @@ install-git:
 install-nano:
 	ln -sf $(PWD)/nano/nanorc ~/.nanorc
 
-install-xsession:
+install-x:
 	mkdir -p ~/.xsession.d
 	ln -sf $(PWD)/xsession/xsessionrc ~/.xsessionrc
+
+install-x-abyssus:
+	mkdir -p ~/.xsession.d
+	ln -sf $(PWD)/xsession/abyssus.sh ~/.xsession.d/
