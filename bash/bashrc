@@ -52,7 +52,7 @@ else
     PROMPT_USER='\[\e$(ansi_fg_bold $COLOR_GREEN)\]\u\[\e$COLOR_RESET\]'
 fi
 
-PROMPT_HOST='${SSH_CONNECTION:+@\[\e$(ansi_fg_bold $COLOR_CYAN)\]\h\[\e$COLOR_RESET\]}'
+PROMPT_HOST='\[\e$(ansi_fg_bold $COLOR_CYAN)\]\h\[\e$COLOR_RESET\]'
 PROMPT_PATH=':\[\e$(ansi_fg_bold $COLOR_YELLOW)\]\w\[\e$COLOR_RESET\]'
 PROMPT_VIRTUALENV='${VIRTUAL_ENV:+(\[\e$(ansi_fg $COLOR_CYAN)\]$(basename $VIRTUAL_ENV)\[\e$COLOR_RESET\])}'
 
