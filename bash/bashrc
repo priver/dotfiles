@@ -47,8 +47,10 @@ ansi_bg () {
 }
 
 if [ $(id -u) == '0' ]; then
+    HISTFILE=/root/.bash_history
     PROMPT_USER='\[\e$(ansi_fg_bold $COLOR_RED)\]\u\[\e$COLOR_RESET\]'
 else
+    HISTFILE=~/.bash_history
     PROMPT_USER='\[\e$(ansi_fg_bold $COLOR_GREEN)\]\u\[\e$COLOR_RESET\]'
 fi
 
