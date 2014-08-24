@@ -1,4 +1,4 @@
-install: install-bash install-nano install-git
+install: install-bash install-nano install-git install-subl
 
 install-bash:
 	ln -sf $(PWD)/bash/bash_aliases ~/.bash_aliases
@@ -12,10 +12,8 @@ install-git:
 install-nano:
 	ln -sf $(PWD)/nano/nanorc ~/.nanorc
 
-install-x:
-	mkdir -p ~/.xsession.d
-	ln -sf $(PWD)/xsession/xsessionrc ~/.xsessionrc
-
-install-x-abyssus:
-	mkdir -p ~/.xsession.d
-	ln -sf $(PWD)/xsession/abyssus.sh ~/.xsession.d/
+install-subl:
+ifeq ($(shell uname),Darwin)
+	ln -sf $(PWD)/sublimetext3/* ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/
+	ln -sf "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" ~/bin/subl
+endif
