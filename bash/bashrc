@@ -7,7 +7,7 @@ if [ -x /usr/local/bin/brew ]; then
     DOT_BREW_PREFIX=$(brew --prefix)
     export PATH=$DOT_BREW_PREFIX/bin:$DOT_BREW_PREFIX/sbin:$PATH
 else
-	DOT_BREW_PREFIX=
+    DOT_BREW_PREFIX=
 fi
 
 export EDITOR=nano
@@ -86,7 +86,7 @@ if [ -f /etc/bash_completion.d/git-prompt ] || [ -f $DOT_BREW_PREFIX/etc/bash_co
 fi
 
 if [ $(uname) == "Darwin" ]; then
-	IGNOREEOF=1
+    IGNOREEOF=1
     export CLICOLOR=1
     export LSCOLORS=ExGxFxdxCxDxDxhbadacec
     export GREP_OPTIONS='--color=auto'
