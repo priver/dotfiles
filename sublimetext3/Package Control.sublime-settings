@@ -6,8 +6,13 @@
 		"GitGutter",
 		"LESS",
 		"SublimeLinter",
+		"SublimeLinter-contrib-scss-lint",
+		"SublimeLinter-csslint",
+		"SublimeLinter-jshint",
 		"SublimeLinter-json",
+		"SublimeLinter-pep257",
 		"SublimeLinter-pep8",
-		"SublimeLinter-pyflakes"
+		"SublimeLinter-pyflakes",
+		"SublimeLinter-rst"
 	]
 }

@@ -1,5 +1,5 @@
 {
     "translate_tabs_to_spaces": true,
     "tab_size": 4,
-    "rulers": [72, 80, 99]
+    "rulers": [80, 99]
 }
