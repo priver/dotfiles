@@ -24,6 +24,16 @@
 				"ignore": "",
 				"warnings": ""
 			},
+			"jscs":
+			{
+				"@disable": false,
+				"args":
+				[
+				],
+				"excludes":
+				[
+				]
+			},
 			"jshint":
 			{
 				"@disable": false,
@@ -107,6 +117,7 @@
 		},
 		"mark_style": "outline",
 		"no_column_highlights_line": false,
+		"passive_warnings": false,
 		"paths":
 		{
 			"linux":

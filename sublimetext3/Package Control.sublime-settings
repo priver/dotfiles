@@ -2,12 +2,17 @@
 	"auto_upgrade_last_run": null,
 	"installed_packages":
 	[
+		"AutoFileName",
+		"Color Highlighter",
 		"DashDoc",
+		"EditorConfig",
 		"GitGutter",
 		"LESS",
+		"SideBarEnhancements",
 		"SublimeLinter",
 		"SublimeLinter-contrib-scss-lint",
 		"SublimeLinter-csslint",
+		"SublimeLinter-jscs",
 		"SublimeLinter-jshint",
 		"SublimeLinter-json",
 		"SublimeLinter-pep257",
