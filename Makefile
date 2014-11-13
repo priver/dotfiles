@@ -16,4 +16,5 @@ install-subl:
 ifeq ($(shell uname),Darwin)
 	ln -sf $(PWD)/sublimetext3/* ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/
 	ln -sf "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" ~/bin/subl
+	ln -sf $(PWD)/linters/jscsrc ~/.jscsrc
 endif
