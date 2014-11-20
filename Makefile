@@ -1,4 +1,4 @@
-install: install-bash install-nano install-git install-subl
+install: install-bash install-nano install-git install-ansible install-subl
 
 install-bash:
 	ln -sf $(PWD)/bash/bash_aliases ~/.bash_aliases
@@ -11,6 +11,11 @@ install-git:
 
 install-nano:
 	ln -sf $(PWD)/nano/nanorc ~/.nanorc
+
+install-ansible:
+ifeq ($(shell uname),Darwin)
+	ln -sf $(PWD)/ansible/ansible.cfg ~/.ansible.cfg
+endif
 
 install-subl:
 ifeq ($(shell uname),Darwin)

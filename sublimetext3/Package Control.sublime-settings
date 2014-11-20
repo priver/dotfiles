@@ -19,6 +19,7 @@
 		"SublimeLinter-pep257",
 		"SublimeLinter-pep8",
 		"SublimeLinter-pyflakes",
-		"SublimeLinter-rst"
+		"SublimeLinter-rst",
+		"Syntax Highlighting for Sass"
 	]
 }

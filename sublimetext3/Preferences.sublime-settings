@@ -61,6 +61,7 @@
 		"vendor",
 		"static-built"
 	],
+	"font_face": "Source Code Pro Light",
 	"font_size": 12,
 	"ignored_packages":
 	[
