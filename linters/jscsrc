@@ -24,16 +24,8 @@
     "requireSpaceBeforeBlockStatements": true,
     "requireParenthesesAroundIIFE": true,
     "requireSpacesInConditionalExpression": true,
-    "requireSpacesInFunctionExpression": {
-        "beforeOpeningCurlyBrace": true
-    },
-    "disallowSpacesInFunctionExpression": {
-        "beforeOpeningRoundBrace": true
-    },
     "requireSpacesInAnonymousFunctionExpression": {
-        "beforeOpeningCurlyBrace": true
-    },
-    "disallowSpacesInAnonymousFunctionExpression": {
+        "beforeOpeningCurlyBrace": true,
         "beforeOpeningRoundBrace": true
     },
     "requireSpacesInNamedFunctionExpression": {
