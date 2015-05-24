@@ -1,0 +1,3 @@
+[
+    { "keys": ["command+ctrl+t"], "command": "run_macro_file", "args": {"file": "Packages/User/todo.sublime-macro"} }
+]

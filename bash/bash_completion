@@ -41,3 +41,6 @@ else
     pythons=python
 fi
 complete -F _python_django_completion -o default $pythons
+
+# awscli
+complete -C aws_completer aws

@@ -31,7 +31,7 @@
     "requireSpacesInNamedFunctionExpression": {
         "beforeOpeningCurlyBrace": true
     },
-	"disallowSpacesInNamedFunctionExpression": {
+    "disallowSpacesInNamedFunctionExpression": {
         "beforeOpeningRoundBrace": true
     },
     "requireSpacesInFunctionDeclaration": {
@@ -51,9 +51,9 @@
     "disallowSpaceAfterObjectKeys": true,
     "requireSpaceBeforeObjectValues": true,
     "requireCommaBeforeLineBreak": true,
-	"requireOperatorBeforeLineBreak": true,
-	"disallowSpaceAfterPrefixUnaryOperators": true,
-	"disallowSpaceBeforePostfixUnaryOperators": true,
+    "requireOperatorBeforeLineBreak": true,
+    "disallowSpaceAfterPrefixUnaryOperators": true,
+    "disallowSpaceBeforePostfixUnaryOperators": true,
     "disallowSpaceBeforeBinaryOperators": [","],
     "requireSpaceBeforeBinaryOperators": true,
     "requireSpaceAfterBinaryOperators": true,
@@ -63,10 +63,10 @@
         "binary",
         "string"
     ],
-	"requireCamelCaseOrUpperCaseIdentifiers": true,
-	"disallowKeywords": ["with"],
-	"disallowMultipleLineStrings": true,
-	"disallowMultipleLineBreaks": true,
+    // "requireCamelCaseOrUpperCaseIdentifiers": true,
+    "disallowKeywords": ["with"],
+    "disallowMultipleLineStrings": true,
+    "disallowMultipleLineBreaks": true,
     "disallowMixedSpacesAndTabs": true,
     "disallowTrailingWhitespace": true,
     "disallowTrailingComma": true,
@@ -76,9 +76,9 @@
     ],
     "requireLineFeedAtFileEnd": true,
     "maximumLineLength": {
-    	"value": 99,
-    	"allowComments": true,
-    	"allowRegex": true
+        "value": 120,
+        "allowComments": true,
+        "allowRegex": true
     },
     "requireCapitalizedConstructors": true,
     "requireDotNotation": true,

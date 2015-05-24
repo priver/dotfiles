@@ -15,6 +15,7 @@ export GIT_EDITOR=$EDITOR
 export SVN_EDITOR=$EDITOR
 export LESS=FRSX
 export VIRTUAL_ENV_DISABLE_PROMPT=1
+export GOPATH=$HOME/projects/go
 
 HISTCONTROL=erasedups
 HISTSIZE=10000
@@ -26,7 +27,7 @@ shopt -s checkwinsize
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
 if [ -f $DOT_BREW_PREFIX/etc/bash_completion ] && ! shopt -oq posix; then
-    . $DOT_BREW_PREFIX/etc/bash_completion
+    source $DOT_BREW_PREFIX/etc/bash_completion
 fi
 
 DOT_COLOR_RESET='[0m'
@@ -52,10 +53,8 @@ dot_ansi_bg () {
 }
 
 if [ $(id -u) == '0' ]; then
-#    HISTFILE=/root/.bash_history
     DOT_PROMPT_USER='\[\e$(dot_ansi_fg_bold $DOT_COLOR_RED)\]\u\[\e$DOT_COLOR_RESET\]'
 else
-#    HISTFILE=~/.bash_history
     DOT_PROMPT_USER='\[\e$(dot_ansi_fg_bold $DOT_COLOR_GREEN)\]\u\[\e$DOT_COLOR_RESET\]'
 fi
 if [ $(uname) != "Darwin" ]; then
@@ -103,7 +102,7 @@ else
 fi
 
 if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
+    source ~/.bash_aliases
 fi
 
 if [ $(id -u) != '0' ]; then
@@ -111,14 +110,15 @@ if [ $(id -u) != '0' ]; then
     if [ -f /usr/local/bin/virtualenvwrapper.sh ]; then
     	export WORKON_HOME=$HOME/.virtualenvs
         export PROJECT_HOME=$HOME/projects
-        . /usr/local/bin/virtualenvwrapper.sh
+        source /usr/local/bin/virtualenvwrapper.sh
     fi
 fi
 
-if [ -x $DOT_BREW_PREFIX/bin/closure-compiler ]; then
-    export CLOSURE_PATH=$DOT_BREW_PREFIX/opt/closure-compiler/libexec
+if [ -f $DOT_BREW_PREFIX/nvm.sh ]
+    export NVM_DIR=~/.nvm
+    source $DOT_BREW_PREFIX/nvm.sh
 fi
 
 if [ -f $DOT_BREW_PREFIX/etc/grc.bashrc ]; then
-    . $DOT_BREW_PREFIX/etc/grc.bashrc
+    source $DOT_BREW_PREFIX/etc/grc.bashrc
 fi

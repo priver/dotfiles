@@ -1,16 +1,20 @@
 {
 	"auto_upgrade_last_run": null,
+	"in_process_packages":
+	[
+	],
 	"installed_packages":
 	[
 		"AutoFileName",
 		"Color Highlighter",
 		"DashDoc",
-		"Djaneiro",
 		"EditorConfig",
 		"Emmet",
 		"Emmet Css Snippets",
 		"GitGutter",
+		"Jinja2",
 		"LESS",
+		"Package Control",
 		"SideBarEnhancements",
 		"SublimeLinter",
 		"SublimeLinter-contrib-scss-lint",
@@ -22,6 +26,7 @@
 		"SublimeLinter-pep8",
 		"SublimeLinter-pyflakes",
 		"SublimeLinter-rst",
-		"Syntax Highlighting for Sass"
+		"Syntax Highlighting for Sass",
+		"TodoReview"
 	]
 }
