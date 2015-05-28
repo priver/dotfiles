@@ -114,9 +114,9 @@ if [ $(id -u) != '0' ]; then
     fi
 fi
 
-if [ -f $DOT_BREW_PREFIX/nvm.sh ]; then
+if [ -f $DOT_BREW_PREFIX/opt/nvm/nvm.sh ]; then
     export NVM_DIR=~/.nvm
-    source $DOT_BREW_PREFIX/nvm.sh
+    source $DOT_BREW_PREFIX/opt/nvm/nvm.sh
 fi
 
 if [ -f $DOT_BREW_PREFIX/etc/grc.bashrc ]; then
