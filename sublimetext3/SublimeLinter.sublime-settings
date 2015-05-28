@@ -34,16 +34,6 @@
 				[
 				]
 			},
-			"jshint":
-			{
-				"@disable": false,
-				"args":
-				[
-				],
-				"excludes":
-				[
-				]
-			},
 			"json":
 			{
 				"@disable": false,
@@ -54,6 +44,16 @@
 				[
 				],
 				"strict": true
+			},
+			"jsxhint":
+			{
+				"@disable": false,
+				"args":
+				[
+				],
+				"excludes":
+				[
+				]
 			},
 			"pep257":
 			{

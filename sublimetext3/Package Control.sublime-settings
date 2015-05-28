@@ -6,6 +6,7 @@
 	"installed_packages":
 	[
 		"AutoFileName",
+		"Babel",
 		"Color Highlighter",
 		"DashDoc",
 		"EditorConfig",
@@ -20,8 +21,8 @@
 		"SublimeLinter-contrib-scss-lint",
 		"SublimeLinter-csslint",
 		"SublimeLinter-jscs",
-		"SublimeLinter-jshint",
 		"SublimeLinter-json",
+		"SublimeLinter-jsxhint",
 		"SublimeLinter-pep257",
 		"SublimeLinter-pep8",
 		"SublimeLinter-pyflakes",

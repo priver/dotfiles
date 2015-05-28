@@ -1,4 +1,6 @@
 {
+    "esnext": true,
+    "esprima" : "esprima-fb",
     "requireCurlyBraces": [
         "if",
         "else",
@@ -86,7 +88,6 @@
     "requireSpaceAfterLineComment": true,
     "disallowNewlineBeforeBlockStatements": true,
     "validateLineBreaks": "LF",
-    "validateQuoteMarks": "'",
     "validateIndentation": 4,
     "safeContextKeyword": "_this"
 }
