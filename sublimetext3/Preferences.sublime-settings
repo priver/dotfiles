@@ -27,19 +27,21 @@
 		".svn",
 		".vagrant",
 		".sass-cache",
+		"__pycache__",
 		"bower_components",
 		"node_modules"
 	],
-	"font_face": "Source Code Pro Light",
+	"font_face": "Hack",
 	"font_size": 12,
 	"ignored_packages":
 	[
-		"GitGutter",
+		"JavaScript",
 		"Vintage"
 	],
 	"pep8_ignore":
 	[
 		"E501"
 	],
+	"translate_tabs_to_spaces": false,
 	"trim_trailing_white_space_on_save": true
 }

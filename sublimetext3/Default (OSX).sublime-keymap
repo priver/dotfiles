@@ -1,3 +1,4 @@
 [
-    { "keys": ["command+ctrl+t"], "command": "run_macro_file", "args": {"file": "Packages/User/todo.sublime-macro"} }
+    { "keys": ["command+ctrl+t"], "command": "run_macro_file", "args": {"file": "Packages/User/todo.sublime-macro"} },
+    { "keys": ["command+shift+'"], "command": "change_quotes" }
 ]

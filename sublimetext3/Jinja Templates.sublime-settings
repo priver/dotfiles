@@ -1,0 +1,9 @@
+{
+	"extensions":
+	[
+		"j2",
+        "tmpl"
+	],
+    "tab_size": 2,
+    "translate_tabs_to_spaces": true,
+}

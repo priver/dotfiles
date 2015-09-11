@@ -11,19 +11,6 @@
 		"lint_mode": "background",
 		"linters":
 		{
-			"csslint":
-			{
-				"@disable": true,
-				"args":
-				[
-				],
-				"errors": "",
-				"excludes":
-				[
-				],
-				"ignore": "",
-				"warnings": ""
-			},
 			"jscs":
 			{
 				"@disable": false,
