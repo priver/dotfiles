@@ -1,10 +1,21 @@
-install: install-bash install-nano install-git install-ruby install-ansible install-subl
+install: \
+	install-bash \
+	install-bin \
+	install-nano \
+	install-git \
+	install-ruby \
+	install-ansible \
+	install-subl
 
 install-bash:
 	ln -sf $(PWD)/bash/bash_aliases ~/.bash_aliases
 	ln -sf $(PWD)/bash/bash_completion ~/.bash_completion
 	ln -sf $(PWD)/bash/bashrc ~/.bashrc
 	ln -sf $(PWD)/bash/profile ~/.profile
+
+install-bin:
+	mkdir -p ~/bin/
+	ln -sf $(PWD)/bin/* ~/bin/
 
 install-git:
 	ln -sf $(PWD)/git/gitconfig ~/.gitconfig
