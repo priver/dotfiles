@@ -10,7 +10,7 @@
 			"selector": "string.quoted.double.html, string.quoted.single.html, source.css"
 		}
 	],
-	"color_scheme": "Packages/User/Monokai (SL).tmTheme",
+	"color_scheme": "Packages/User/Monokai (SL) (SublimePythonIDE).tmTheme",
 	"ensure_newline_at_eof_on_save": true,
 	"file_exclude_patterns":
 	[
