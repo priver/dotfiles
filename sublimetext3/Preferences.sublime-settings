@@ -36,6 +36,7 @@
 	"ignored_packages":
 	[
 		"JavaScript",
+		"Python",
 		"Vintage"
 	],
 	"pep8_ignore":
