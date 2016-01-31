@@ -4,7 +4,7 @@
         "jsx",
         "js"
     ],
-    "rulers": [119],
+    "rulers": [120],
     "tab_size": 4,
     "translate_tabs_to_spaces": true
 }

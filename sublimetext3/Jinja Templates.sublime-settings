@@ -4,6 +4,6 @@
 		"j2",
         "tmpl"
 	],
-    "tab_size": 2,
+    "tab_size": 4,
     "translate_tabs_to_spaces": true,
 }
