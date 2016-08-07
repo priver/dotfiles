@@ -22,11 +22,12 @@
 	],
 	"folder_exclude_patterns":
 	[
+		"*.egg-info",
 		".git",
 		".hg",
+		".sass-cache",
 		".svn",
 		".vagrant",
-		".sass-cache",
 		"__pycache__",
 		"bower_components",
 		"node_modules"

@@ -28,11 +28,9 @@
 		"SublimeLinter-contrib-eslint",
 		"SublimeLinter-contrib-scss-lint",
 		"SublimeLinter-csslint",
+		"SublimeLinter-flake8",
 		"SublimeLinter-json",
-		"SublimeLinter-pep257",
-		"SublimeLinter-pep8",
-		"SublimeLinter-pyflakes",
-		"SublimeLinter-rst",
+		"SublimeLinter-pydocstyle",
 		"Syntax Highlighting for Sass",
 		"TodoReview"
 	]
