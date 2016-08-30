@@ -23,12 +23,6 @@ install-git:
 install-nano:
 	ln -sf $(PWD)/nano/nanorc ~/.nanorc
 
-install-ruby:
-ifeq ($(shell uname),Darwin)
-	gem install bundler
-	bundle install --gemfile=$(PWD)/ruby/Gemfile
-endif
-
 install-ansible:
 ifeq ($(shell uname),Darwin)
 	ln -sf $(PWD)/ansible/ansible.cfg ~/.ansible.cfg
