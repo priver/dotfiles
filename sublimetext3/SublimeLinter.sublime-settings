@@ -43,7 +43,7 @@
             "pydocstyle": {
                 "@disable": false,
                 "@python": "3.5",
-                "add-ignore": "D105",
+                "add-ignore": "D102,D105",
                 "args": [],
                 "excludes": []
             },
