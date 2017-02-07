@@ -1,9 +1,8 @@
 install: \
 	install-bash \
 	install-bin \
-	install-nano \
 	install-git \
-	install-ruby \
+	install-nano \
 	install-ansible \
 	install-subl
 
