@@ -115,6 +115,12 @@ if [ $(id -u) != '0' ]; then
     fi
 fi
 
+if [ -f $DOT_BREW_PREFIX/opt/git/share/git-core/contrib/diff-highlight/diff-highlight ]; then
+    ln -sf $DOT_BREW_PREFIX/opt/git/share/git-core/contrib/diff-highlight/diff-highlight $HOME/bin/diff-highlight
+else
+    ln -sf /usr/share/doc/git/contrib/diff-highlight/diff-highlight $HOME/bin/diff-highlight
+fi
+
 if [ -f $DOT_BREW_PREFIX/opt/nvm/nvm.sh ]; then
     export NVM_DIR=~/.nvm
     source $DOT_BREW_PREFIX/opt/nvm/nvm.sh

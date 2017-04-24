@@ -43,6 +43,7 @@
 	[
 		"E501"
 	],
+	"scroll_past_end": true,
 	"translate_tabs_to_spaces": false,
 	"trim_trailing_white_space_on_save": true
 }

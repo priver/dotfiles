@@ -72,6 +72,17 @@
 				"max-line-length": 99,
 				"select": ""
 			},
+			"pydocstyle":
+			{
+				"@disable": false,
+				"add-ignore": "",
+				"args":
+				[
+				],
+				"excludes":
+				[
+				]
+			},
 			"pyflakes":
 			{
 				"@disable": false,
@@ -104,6 +115,16 @@
 				[
 				],
 				"include-linter": ""
+			},
+			"stylint":
+			{
+				"@disable": false,
+				"args":
+				[
+				],
+				"excludes":
+				[
+				]
 			}
 		},
 		"mark_style": "outline",
