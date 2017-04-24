@@ -34,6 +34,25 @@
 				[
 				]
 			},
+			"flake8":
+			{
+				"@disable": false,
+				"@python": "3.6",
+				"args":
+				[
+				],
+				"builtins": "",
+				"excludes":
+				[
+				],
+				"executable": "",
+				"ignore": "",
+				"jobs": "1",
+				"max-complexity": 10,
+				"max-line-length": 99,
+				"select": "",
+				"show-code": true
+			},
 			"json":
 			{
 				"@disable": false,
@@ -45,58 +64,11 @@
 				],
 				"strict": true
 			},
-			"pep257":
-			{
-				"@disable": false,
-				"@python": "3.5",
-				"add-ignore": "",
-				"args":
-				[
-				],
-				"excludes":
-				[
-				],
-				"ignore": ""
-			},
-			"pep8":
-			{
-				"@disable": false,
-				"@python": "3.5",
-				"args":
-				[
-				],
-				"excludes":
-				[
-				],
-				"ignore": "E501",
-				"max-line-length": 99,
-				"select": ""
-			},
 			"pydocstyle":
 			{
 				"@disable": false,
-				"add-ignore": "",
-				"args":
-				[
-				],
-				"excludes":
-				[
-				]
-			},
-			"pyflakes":
-			{
-				"@disable": false,
-				"@python": "3.5",
-				"args":
-				[
-				],
-				"excludes":
-				[
-				]
-			},
-			"rst":
-			{
-				"@disable": false,
+				"@python": "3.6",
+				"add-ignore": "D100,D102,D105",
 				"args":
 				[
 				],
@@ -165,10 +137,18 @@
 			"html (django)": "html",
 			"html (rails)": "html",
 			"html 5": "html",
+			"javascript (babel)": "javascript",
 			"magicpython": "python",
 			"php": "html",
-			"python django": "python"
+			"python django": "python",
+			"pythonimproved": "python"
 		},
+		"tooltip_fontsize": "1rem",
+		"tooltip_theme": "Packages/SublimeLinter/tooltip-themes/Default/Default.tooltip-theme",
+		"tooltip_theme_excludes":
+		[
+		],
+		"tooltips": false,
 		"warning_color": "DDB700",
 		"wrap_find": true
 	}

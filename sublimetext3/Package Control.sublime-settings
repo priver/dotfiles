@@ -12,6 +12,7 @@
 		"Color Highlighter",
 		"DashDoc",
 		"DocBlockr",
+		"Dockerfile Syntax Highlighting",
 		"EditorConfig",
 		"Emmet",
 		"Emmet Css Snippets",
@@ -19,7 +20,6 @@
 		"Handlebars",
 		"Jinja2",
 		"LESS",
-		"MagicPython",
 		"Package Control",
 		"Pretty JSON",
 		"SideBarEnhancements",
@@ -29,11 +29,9 @@
 		"SublimeLinter-contrib-scss-lint",
 		"SublimeLinter-contrib-stylint",
 		"SublimeLinter-csslint",
+		"SublimeLinter-flake8",
 		"SublimeLinter-json",
-		"SublimeLinter-pep8",
 		"SublimeLinter-pydocstyle",
-		"SublimeLinter-pyflakes",
-		"SublimeLinter-rst",
 		"Syntax Highlighting for Sass",
 		"TodoReview"
 	]

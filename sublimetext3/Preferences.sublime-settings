@@ -1,4 +1,13 @@
 {
+	"added_words":
+	[
+		"html",
+		"webpack",
+		"plugin",
+		"dir",
+		"json",
+		"dev"
+	],
 	"auto_complete_triggers":
 	[
 		{
@@ -22,11 +31,12 @@
 	],
 	"folder_exclude_patterns":
 	[
+		"*.egg-info",
 		".git",
 		".hg",
+		".sass-cache",
 		".svn",
 		".vagrant",
-		".sass-cache",
 		"__pycache__",
 		"bower_components",
 		"node_modules"
@@ -36,7 +46,6 @@
 	"ignored_packages":
 	[
 		"JavaScript",
-		"Python",
 		"Vintage"
 	],
 	"pep8_ignore":
