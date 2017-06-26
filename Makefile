@@ -34,5 +34,5 @@ ifeq ($(shell uname),Darwin)
 	ln -sf $(PWD)/linters/flake8 ~/.config/flake8
 	ln -sf $(PWD)/linters/pydocstyle ~/.pydocstyle
 	ln -sf $(PWD)/linters/eslintrc.json ~/.eslintrc.json
-	ln -sf $(PWD)/linters/scss-lint.yml ~/.scss-lint.yml
+	ln -sf $(PWD)/linters/stylelintrc ~/.stylelintrc
 endif
