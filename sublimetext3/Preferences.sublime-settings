@@ -46,6 +46,8 @@
 	"ignored_packages":
 	[
 		"JavaScript",
+		"MagicPython",
+		"SublimeLinter-pep8",
 		"Vintage"
 	],
 	"pep8_ignore":
