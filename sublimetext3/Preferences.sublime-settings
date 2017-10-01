@@ -37,6 +37,7 @@
 	"ignored_packages":
 	[
 		"JavaScript",
+		"Package Control",
 		"Vintage"
 	],
 	"pep8_ignore":

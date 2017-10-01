@@ -15,7 +15,7 @@ export GIT_EDITOR=$EDITOR
 export SVN_EDITOR=$EDITOR
 export LESS=FRSX
 export VIRTUAL_ENV_DISABLE_PROMPT=1
-export GOPATH=$HOME/projects/go
+export GOPATH=$HOME/projects_go
 
 HISTCONTROL=erasedups
 HISTSIZE=10000

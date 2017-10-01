@@ -1,0 +1,25 @@
+{
+    "recommendations": [
+        "DavidAnson.vscode-markdownlint",
+        "EditorConfig.EditorConfig",
+        "IBM.output-colorizer",
+        "PeterJausovec.vscode-docker",
+        "Tyriar.sort-lines",
+        "alefragnani.project-manager",
+        "alexdima.copy-relative-path",
+        "christian-kohler.npm-intellisense",
+        "christian-kohler.path-intellisense",
+        "dbaeumer.vscode-eslint",
+        "deerawan.vscode-dash",
+        "donjayamanne.python",
+        "eamodio.gitlens",
+        "eg2.tslint",
+        "eg2.vscode-npm-script",
+        "formulahendry.auto-close-tag",
+        "formulahendry.auto-rename-tag",
+        "lukehoban.Go",
+        "monokai.theme-monokai-pro-vscode",
+        "qezhu.gitlink",
+        "shinnn.stylelint"
+    ]
+}

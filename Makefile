@@ -4,7 +4,9 @@ install: \
 	install-git \
 	install-nano \
 	install-ansible \
-	install-subl
+	install-linters \
+	install-subl \
+	install-vscode
 
 install-bash:
 	ln -sf $(PWD)/bash/bash_aliases ~/.bash_aliases
@@ -27,12 +29,22 @@ ifeq ($(shell uname),Darwin)
 	ln -sf $(PWD)/ansible/ansible.cfg ~/.ansible.cfg
 endif
 
-install-subl:
+install-linters:
 ifeq ($(shell uname),Darwin)
-	ln -sf $(PWD)/sublimetext3/* ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/
-	ln -sf "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" ~/bin/subl
 	ln -sf $(PWD)/linters/flake8 ~/.config/flake8
 	ln -sf $(PWD)/linters/pydocstyle ~/.pydocstyle
 	ln -sf $(PWD)/linters/eslintrc.json ~/.eslintrc.json
 	ln -sf $(PWD)/linters/stylelintrc ~/.stylelintrc
+endif
+
+install-subl:
+ifeq ($(shell uname),Darwin)
+	ln -sf $(PWD)/sublimetext3/* ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/
+	ln -sf "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" ~/bin/subl
+endif
+
+install-vscode:
+ifeq ($(shell uname),Darwin)
+	ln -sf $(PWD)/vscode/settings.json ~/Library/Application\ Support/Code/User
+	ln -sf $(PWD)/vscode/extensions.json ~/Library/Application\ Support/Code/User
 endif
