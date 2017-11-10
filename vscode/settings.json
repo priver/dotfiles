@@ -6,29 +6,9 @@
     "editor.minimap.enabled": false,
     "editor.wordWrap": "off",
     "editor.emptySelectionClipboard": false,
+    "editor.renderWhitespace": "boundary",
     "editor.trimAutoWhitespace": true,
     "editor.dragAndDrop": false,
-    "workbench.startupEditor": "none",
-    "workbench.colorTheme": "Monokai Pro",
-    "workbench.iconTheme": "Monokai Pro Icons",
-    "window.newWindowDimensions": "maximized",
-    "files.exclude": {
-        "**/.git": true,
-        "**/.svn": true,
-        "**/.hg": true,
-        "**/CVS": true,
-        "**/.DS_Store": true
-    },
-    "files.associations": {},
-    "files.trimTrailingWhitespace": true,
-    "files.insertFinalNewline": true,
-    "explorer.openEditors.visible": 0,
-    "search.exclude": {
-        "**/node_modules": true,
-        "**/bower_components": true
-    },
-    "css.validate": false,
-    "scss.validate": false,
     "[go]": {
         "editor.insertSpaces": false
     },
@@ -45,6 +25,67 @@
     "[yaml]": {
         "editor.insertSpaces": true,
         "editor.tabSize": 2
+    },
+    "workbench.startupEditor": "none",
+    "window.newWindowDimensions": "maximized",
+    "files.exclude": {
+        "**/.git": true,
+        "**/.hg": true,
+        "**/.svn": true,
+        "**/.DS_Store": true,
+        "**/node_modules": true
+    },
+    "files.associations": {},
+    "files.trimTrailingWhitespace": true,
+    "files.insertFinalNewline": true,
+    "explorer.openEditors.visible": 0,
+    "css.validate": false,
+    "scss.validate": false,
+    "dash.docset.css": [
+        "css"
+    ],
+    "dash.docset.sass": [
+        "sass",
+        "css"
+    ],
+    "dash.docset.html": [
+        "html",
+        "svg",
+        "css",
+        "javascript",
+        "backbone",
+        "lodash",
+        "underscore"
+    ],
+    "dash.docset.javascript": [
+        "javascript",
+        "react",
+        "backbone",
+        "lodash",
+        "underscore",
+        "d3",
+        "svg",
+        "nodejs",
+        "express",
+        "moment",
+        "jasmine",
+        "chai",
+        "html",
+        "css"
+    ],
+    "dash.docset.python": [
+        "python",
+        "django",
+        "sphinx",
+        "flask",
+        "tornado",
+        "sqlalchemy",
+        "numpy",
+        "scipy"
+    ],
+    "markdownlint.config": {
+        "line-length": false,
+        "no-inline-html": {"allowed_elements": ["a"]}
     },
     "npm-intellisense.importLinebreak": ";\n"
 }

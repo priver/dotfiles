@@ -125,3 +125,7 @@ if [ -f $DOT_BREW_PREFIX/opt/nvm/nvm.sh ]; then
     export NVM_DIR=~/.nvm
     source $DOT_BREW_PREFIX/opt/nvm/nvm.sh
 fi
+
+if [ -f $HOME/.travis/travis.sh ]; then
+    source $HOME/.travis/travis.sh
+fi
