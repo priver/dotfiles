@@ -12,9 +12,7 @@
         "eamodio.gitlens",
         "eg2.tslint",
         "eg2.vscode-npm-script",
-        "lukehoban.Go",
         "ms-python.python",
-        "ms-vscode.azure-account",
         "qezhu.gitlink",
         "shinnn.stylelint"
     ]

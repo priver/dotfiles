@@ -3,6 +3,8 @@
 [core]
     autocrlf = input
     editor = nano
+[pull]
+    rebase = true
 [push]
     default = upstream
 [pager]

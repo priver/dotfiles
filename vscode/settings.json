@@ -9,9 +9,6 @@
     "editor.renderWhitespace": "boundary",
     "editor.trimAutoWhitespace": true,
     "editor.dragAndDrop": false,
-    "[go]": {
-        "editor.insertSpaces": false
-    },
     "[makefile]": {
         "editor.insertSpaces": false
     },
@@ -36,57 +33,18 @@
         "**/.DS_Store": true,
         "**/node_modules": true
     },
-    "files.associations": {},
     "files.trimTrailingWhitespace": true,
     "files.insertFinalNewline": true,
-    "explorer.openEditors.visible": 0,
+    "explorer.openEditors.visible": 9,
     "css.validate": false,
     "scss.validate": false,
-    "dash.docset.css": [
-        "css"
-    ],
-    "dash.docset.sass": [
-        "sass",
-        "css"
-    ],
-    "dash.docset.html": [
-        "html",
-        "svg",
-        "css",
-        "javascript",
-        "backbone",
-        "lodash",
-        "underscore"
-    ],
-    "dash.docset.javascript": [
-        "javascript",
-        "react",
-        "backbone",
-        "lodash",
-        "underscore",
-        "d3",
-        "svg",
-        "nodejs",
-        "express",
-        "moment",
-        "jasmine",
-        "chai",
-        "html",
-        "css"
-    ],
-    "dash.docset.python": [
-        "python",
-        "django",
-        "sphinx",
-        "flask",
-        "tornado",
-        "sqlalchemy",
-        "numpy",
-        "scipy"
-    ],
     "markdownlint.config": {
         "line-length": false,
         "no-inline-html": {"allowed_elements": ["a"]}
     },
-    "npm-intellisense.importLinebreak": ";\n"
+    "npm-intellisense.importLinebreak": ";\n",
+    "npm.packageManager": "yarn",
+    "gitlens.advanced.messages": {
+        "suppressShowKeyBindingsNotice": true
+    }
 }
