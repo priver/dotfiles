@@ -3,7 +3,6 @@ install: \
 	install-bin \
 	install-git \
 	install-nano \
-	install-linters \
 	install-vscode
 
 install-bash:
@@ -20,14 +19,6 @@ install-git:
 
 install-nano:
 	ln -sf $(PWD)/nano/nanorc ~/.nanorc
-
-install-linters:
-ifeq ($(shell uname),Darwin)
-	ln -sf $(PWD)/linters/flake8 ~/.config/flake8
-	ln -sf $(PWD)/linters/pydocstyle ~/.pydocstyle
-	ln -sf $(PWD)/linters/eslintrc.json ~/.eslintrc.json
-	ln -sf $(PWD)/linters/stylelintrc ~/.stylelintrc
-endif
 
 install-vscode:
 ifeq ($(shell uname),Darwin)
