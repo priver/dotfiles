@@ -23,7 +23,6 @@
         "editor.insertSpaces": true,
         "editor.tabSize": 2
     },
-    "workbench.colorTheme": "One Dark Pro",
     "workbench.startupEditor": "none",
     "window.newWindowDimensions": "maximized",
     "files.exclude": {
@@ -46,5 +45,6 @@
     "npm.packageManager": "yarn",
     "gitlens.advanced.messages": {
         "suppressShowKeyBindingsNotice": true
-    }
+    },
+    "gitlens.codeLens.enabled": false
 }
