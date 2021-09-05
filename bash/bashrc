@@ -1,20 +1,11 @@
 # ~/.bashrc: executed by bash(1) for non-login shells.
 
-# If not running interactively, don't do anything
 [ -z "$PS1" ] && return
-
-if [ -x /usr/local/bin/brew ]; then
-    DOT_BREW_PREFIX=$(brew --prefix)
-    export PATH=$DOT_BREW_PREFIX/bin:$DOT_BREW_PREFIX/sbin:$PATH
-else
-    DOT_BREW_PREFIX=
-fi
 
 export EDITOR=nano
 export GIT_EDITOR=$EDITOR
 export SVN_EDITOR=$EDITOR
-export LESS=FRSX
-export VIRTUAL_ENV_DISABLE_PROMPT=1
+export LESS="-FRSX --tabs=2"
 
 HISTCONTROL=erasedups
 HISTSIZE=10000
@@ -25,8 +16,8 @@ shopt -s checkwinsize
 
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
-if [ -f $DOT_BREW_PREFIX/etc/bash_completion ] && ! shopt -oq posix; then
-    source $DOT_BREW_PREFIX/etc/bash_completion
+if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
+  source /etc/bash_completion
 fi
 
 DOT_COLOR_RESET='[0m'
@@ -40,101 +31,65 @@ DOT_COLOR_CYAN=6
 DOT_COLOR_WHITE=7
 
 dot_ansi_fg () {
-    echo "[3$1m"
+  echo "[3$1m"
 }
 
 dot_ansi_fg_bold () {
-    echo "[1;3$1m"
+  echo "[1;3$1m"
 }
 
 dot_ansi_bg () {
-    echo "[4$1m"
+  echo "[4$1m"
 }
 
 if [ $(id -u) == '0' ]; then
-    DOT_PROMPT_USER='\[\e$(dot_ansi_fg_bold $DOT_COLOR_RED)\]\u\[\e$DOT_COLOR_RESET\]'
+  DOT_PROMPT_USER='\[\e$(dot_ansi_fg_bold $DOT_COLOR_RED)\]\u\[\e$DOT_COLOR_RESET\]'
 else
-    DOT_PROMPT_USER='\[\e$(dot_ansi_fg_bold $DOT_COLOR_GREEN)\]\u\[\e$DOT_COLOR_RESET\]'
+  DOT_PROMPT_USER='\[\e$(dot_ansi_fg_bold $DOT_COLOR_GREEN)\]\u\[\e$DOT_COLOR_RESET\]'
 fi
 if [ $(uname) != "Darwin" ]; then
-    DOT_PROMPT_HOST='@\[\e$(dot_ansi_fg_bold $DOT_COLOR_CYAN)\]\h\[\e$DOT_COLOR_RESET\]'
+  DOT_PROMPT_HOST='@\[\e$(dot_ansi_fg_bold $DOT_COLOR_CYAN)\]\h\[\e$DOT_COLOR_RESET\]'
 else
-    DOT_PROMPT_HOST=
+  DOT_PROMPT_HOST=
 fi
 DOT_PROMPT_PATH=':\[\e$(dot_ansi_fg $DOT_COLOR_YELLOW)\]\w\[\e$DOT_COLOR_RESET\]'
-DOT_PROMPT_VIRTUALENV='${VIRTUAL_ENV:+(\[\e$(dot_ansi_fg $DOT_COLOR_CYAN)\]$(basename $VIRTUAL_ENV)\[\e$DOT_COLOR_RESET\])}'
 
-DOT_PROMPT_STRING="${DOT_PROMPT_USER}${DOT_PROMPT_HOST}${DOT_PROMPT_PATH} ${DOT_PROMPT_VIRTUALENV}"
+DOT_PROMPT_STRING="${DOT_PROMPT_USER}${DOT_PROMPT_HOST}${DOT_PROMPT_PATH} "
 
 case "$TERM" in
 xterm*|rxvt*)
-    DOT_PROMPT_STRING="\[\e]0;\h:\W\a\]$DOT_PROMPT_STRING"
-    ;;
+  DOT_PROMPT_STRING="\[\e]0;\h:\W\a\]$DOT_PROMPT_STRING"
+  ;;
 *)
-    ;;
+  ;;
 esac
 
 PS1="$DOT_PROMPT_STRING\$ "
 
-if [ -f /etc/bash_completion.d/git-prompt ] || [ -f $DOT_BREW_PREFIX/etc/bash_completion.d/git-prompt.sh ]; then
-    GIT_PS1_SHOWDIRTYSTATE=1
-    GIT_PS1_SHOWUNTRACKEDFILES=1
-    GIT_PS1_SHOWCOLORHINTS=1
-    PROMPT_COMMAND='__git_ps1 "$DOT_PROMPT_STRING" "\$ " "[%s]"'
+if [ -f /etc/bash_completion.d/git-prompt ] || [ -f /etc/bash_completion.d/git-prompt.sh ]; then
+  GIT_PS1_SHOWDIRTYSTATE=1
+  GIT_PS1_SHOWUNTRACKEDFILES=1
+  GIT_PS1_SHOWCOLORHINTS=1
+  PROMPT_COMMAND='__git_ps1 "$DOT_PROMPT_STRING" "\$ " "[%s]"'
 fi
 
 if [ $(uname) == "Darwin" ]; then
-    IGNOREEOF=1
-    export CLICOLOR=1
-    export LSCOLORS=ExGxFxdxCxDxDxhbadacec
-    export GREP_OPTIONS='--color=auto'
-    export LC_CTYPE=en_US.utf-8
-    export LC_ALL=en_US.utf-8
+  IGNOREEOF=1
+  export CLICOLOR=1
+  export LSCOLORS=ExGxFxdxCxDxDxhbadacec
+  export GREP_OPTIONS='--color=auto'
+  export LC_CTYPE=en_US.utf-8
+  export LC_ALL=en_US.utf-8
 else
-    if [ -x /usr/bin/dircolors ]; then
-        test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-        alias ls='ls --color=auto'
-        alias grep='grep --color=auto'
-        alias fgrep='fgrep --color=auto'
-        alias egrep='egrep --color=auto'
-    fi
+  if [ -x /usr/bin/dircolors ]; then
+    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+    alias ls='ls --color=auto'
+    alias grep='grep --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
+  fi
 fi
 
 if [ -f ~/.bash_aliases ]; then
-    source ~/.bash_aliases
-fi
-
-if [ $(id -u) != '0' ]; then
-    export PIP_REQUIRE_VIRTUALENV=1
-    if [ -f /usr/local/bin/virtualenvwrapper.sh ]; then
-        export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
-        export WORKON_HOME=$HOME/.virtualenvs
-        export PROJECT_HOME=$HOME/projects
-        source /usr/local/bin/virtualenvwrapper.sh
-    fi
-fi
-
-if [ -f $DOT_BREW_PREFIX/opt/git/share/git-core/contrib/diff-highlight/diff-highlight ]; then
-    ln -sf $DOT_BREW_PREFIX/opt/git/share/git-core/contrib/diff-highlight/diff-highlight $HOME/bin/diff-highlight
-else
-    if [ -f /usr/share/doc/git/contrib/diff-highlight/diff-highlight ]; then
-        ln -sf /usr/share/doc/git/contrib/diff-highlight/diff-highlight $HOME/bin/diff-highlight
-    fi
-fi
-
-if [ -f $DOT_BREW_PREFIX/opt/nvm/nvm.sh ]; then
-    export NVM_DIR=~/.nvm
-    source $DOT_BREW_PREFIX/opt/nvm/nvm.sh
-fi
-
-if [ -f $DOT_BREW_PREFIX/opt/google-cloud-sdk/path.bash.inc ]; then
-    source '/usr/local/opt/google-cloud-sdk/path.bash.inc';
-fi
-
-if [ -f $DOT_BREW_PREFIX/opt/google-cloud-sdk/completion.bash.inc ]; then
-    source '/usr/local/opt/google-cloud-sdk/completion.bash.inc';
-fi
-
-if [ -f $HOME/.travis/travis.sh ]; then
-    source $HOME/.travis/travis.sh
+  source ~/.bash_aliases
 fi

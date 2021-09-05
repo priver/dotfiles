@@ -3,39 +3,38 @@
 [core]
     autocrlf = input
     editor = nano
+    pager = delta
+    precomposeUnicode = true
+[interactive]
+    diffFilter = delta --color-only --features=interactive
 [pull]
     rebase = true
 [push]
     default = upstream
-[pager]
-    log = diff-highlight | less
-    show = diff-highlight | less
-    diff = diff-highlight | less
-[interactive]
-    diffFilter = diff-highlight
 [diff]
+    colorMoved = default
     compactionHeuristic = true
 [alias]
     b = branch -vv
     ci = commit
     co = checkout
-    l = log --pretty=format:'%C(auto)%h%d %C(blue)%an:%C(reset) %s %C(green)(%cr)%C(reset)'
-    lg = log --graph --pretty=format:'%C(auto)%h%d %C(blue)%an:%C(reset) %s %C(green)(%cr)%C(reset)'
+    count = shortlog -sn
+    l = log --pretty=format:'%C(auto)%h%d %C(blue)%aN%C(reset) %s %C(dim)(%cr)%C(reset)'
+    lg = log --graph --pretty=format:'%C(auto)%h%d %C(blue)%aN%C(reset) %s %C(dim)(%cr)%C(reset)'
+    lt = log --tags --simplify-by-decoration --pretty=format:'%C(auto)%h%d %C(blue)%aN%C(reset) %s %C(dim)(%cr)%C(reset)'
     s = status -bs
 [color]
     ui = auto
-[color "diff"]
-    meta = cyan
-    frag = magenta bold
-    old = red
-    new = green
-    func = white dim
-[color "diff-highlight"]
-    oldNormal = red
-    oldHighlight = red bold 52
-    newNormal = green
-    newHighlight = green bold 22
 [color "status"]
     added = green bold
     changed = yellow
     untracked = blue bold
+[filter "lfs"]
+    clean = git-lfs clean -- %f
+    smudge = git-lfs smudge -- %f
+    process = git-lfs filter-process
+    required = true
+[delta]
+    syntax-theme = Dracula
+    line-numbers = true
+    decorations = true

@@ -6,5 +6,5 @@ set nowrap
 set smarthome
 set smooth
 set suspend
-set tabsize 4
+set tabsize 2
 set tabstospaces

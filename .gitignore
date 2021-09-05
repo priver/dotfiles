@@ -1,5 +1,5 @@
+iterm/com.googlecode.iterm2.plist
+
 # IDE / OS files
-*.sublime-project
-*.sublime-workspace
-.idea
+.vscode
 .DS_Store

@@ -1,0 +1,8 @@
+Host *
+  SendEnv LANG LC_*
+  ForwardAgent yes
+  ForwardX11 no
+  AddKeysToAgent yes
+
+Host *.devmail.ru
+  User m.priver
