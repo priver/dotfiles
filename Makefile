@@ -9,8 +9,7 @@ config: \
 	config-git \
 	config-mc \
 	config-nano \
-	config-ssh \
-	config-starship
+	config-ssh
 
 install-homebrew:
 ifeq ($(shell uname),Darwin)
@@ -40,7 +39,9 @@ ifeq ($(shell uname),Darwin)
 endif
 
 config-git:
+ifeq ($(shell uname),Darwin)
 	ln -sf $(PWD)/git/gitconfig ~/.gitconfig
+endif
 
 config-nano:
 	ln -sf $(PWD)/nano/nanorc ~/.nanorc
@@ -55,10 +56,4 @@ config-ssh:
 ifeq ($(shell uname),Darwin)
 	mkdir -p ~/.ssh
 	ln -sf $(PWD)/ssh/config ~/.ssh/config
-endif
-
-config-starship:
-ifeq ($(shell uname),Darwin)
-	mkdir -p ~/.config
-	ln -sf $(PWD)/starship/starship.toml ~/.config/starship.toml
 endif
