@@ -11,7 +11,7 @@ set -l cyan 8be9fd
 set -l pink ff79c6
 
 # prompt
-set -g tide_prompt_add_newline_before false
+set -g tide_prompt_add_newline_before true
 set -g tide_prompt_min_cols 26
 set -g tide_prompt_pad_items false
 

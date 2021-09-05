@@ -18,7 +18,7 @@ ifeq ($(shell uname),Darwin)
 endif
 
 install-fisher:
-ifeq ($(shell uname),Darwin)
+ifneq ($(shell which fish),)
 	fish -c "curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher"
 endif
 
@@ -31,10 +31,14 @@ config-editorconfig:
 	ln -sf $(PWD)/.editorconfig ~/.editorconfig
 
 config-fish:
-ifeq ($(shell uname),Darwin)
+ifneq ($(shell which fish),)
 	ln -sf $(PWD)/fish/functions/* ~/.config/fish/functions/
 	ln -sf $(PWD)/fish/conf.d/* ~/.config/fish/conf.d/
 	ln -sf $(PWD)/fish/fish_plugins ~/.config/fish/fish_plugins
+ifeq ($(shell grep $(shell which fish) /etc/shells),)
+	which fish | sudo tee -a /etc/shells
+	chsh -s $(shell which fish)
+endif
 	fish -c "fisher update"
 endif
 
