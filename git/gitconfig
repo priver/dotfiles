@@ -14,6 +14,10 @@
 [diff]
     colorMoved = default
     compactionHeuristic = true
+[merge]
+    tool = vscode
+[mergetool "vscode"]
+    cmd = code --wait $MERGED
 [alias]
     b = branch -vv
     ci = commit

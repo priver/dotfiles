@@ -4,12 +4,12 @@ set -gx LC_ALL en_US.utf-8
 set -gx EDITOR nano
 set -gx GIT_EDITOR nano
 set -gx LESS '-FRSX --tabs=2'
+set -gx PROJECTS "$HOME/projects"
 set -g fish_greeting
 
 if status --is-interactive
-    abbr -a -g .. 'cd ..'
-    abbr -a -g ... 'cd ../..'
-    abbr -a -g h history
+  abbr -a -g .. 'cd ..'
+  abbr -a -g ... 'cd ../..'
 end
 
 if command -qa bat
