@@ -42,3 +42,5 @@
     syntax-theme = Dracula
     line-numbers = true
     decorations = true
+[init]
+	defaultBranch = master
