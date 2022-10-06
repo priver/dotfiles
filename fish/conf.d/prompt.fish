@@ -12,35 +12,41 @@ set -l pink ff79c6
 
 # prompt
 set -g tide_prompt_add_newline_before true
-set -g tide_prompt_min_cols 26
+# tide_prompt_color_frame_and_connection 6C6C6C
+# tide_prompt_color_separator_same_color 949494
+# tide_prompt_icon_connection ' '
+set -g tide_prompt_min_cols 34
 set -g tide_prompt_pad_items false
 
 # left_prompt
 set -g tide_left_prompt_frame_enabled false
-set -g tide_left_prompt_items context pwd git character
-set -g tide_left_prompt_prefix ''
-set -g tide_left_prompt_suffix ' '
+set -g tide_left_prompt_items 'context'  'pwd' 'git'  'character'
+set -g tide_left_prompt_prefix
+set -g tide_left_prompt_separator_diff_color ' '
+set -g tide_left_prompt_separator_same_color ' '
+set -g tide_left_prompt_suffix
 
 # right_prompt
 set -g tide_right_prompt_frame_enabled false
-set -g tide_right_prompt_items status cmd_duration jobs node # kubectl
+set -g tide_right_prompt_items 'status'  'cmd_duration'  'jobs'  'node' # 'kubectl'
 set -g tide_right_prompt_prefix ' '
-set -g tide_right_prompt_suffix ''
+set -g tide_right_prompt_separator_diff_color ' '
+set -g tide_right_prompt_separator_same_color ' '
+set -g tide_right_prompt_suffix
 
 # character
-set -g tide_character_bg_color normal
 set -g tide_character_color $green
 set -g tide_character_color_failure $red
-set -g tide_character_icon '❯'
-set -g tide_character_vi_icon_default '❮'
-set -g tide_character_vi_icon_replace '▶'
+set -g tide_character_icon ❯
+set -g tide_character_vi_icon_default ❮
+set -g tide_character_vi_icon_replace ▶
 set -g tide_character_vi_icon_visual V
 
 # cmd_duration
 set -g tide_cmd_duration_bg_color normal
 set -g tide_cmd_duration_color $yellow
 set -g tide_cmd_duration_decimals 0
-set -g tide_cmd_duration_icon ''
+set -g tide_cmd_duration_icon
 set -g tide_cmd_duration_threshold 3000
 
 # context
@@ -49,6 +55,11 @@ set -g tide_context_bg_color normal
 set -g tide_context_color_default $green
 set -g tide_context_color_root $red
 set -g tide_context_color_ssh $green
+
+# docker
+set -g tide_docker_bg_color normal
+set -g tide_docker_color 2496ed
+set -g tide_docker_icon 
 
 # git
 set -g tide_git_bg_color normal
@@ -62,22 +73,23 @@ set -g tide_git_color_staged $green
 set -g tide_git_color_stash $comment
 set -g tide_git_color_untracked $orange
 set -g tide_git_color_upstream $green
-set -g tide_git_icon ''
+set -g tide_git_icon 
+set -g tide_git_truncation_length 24
 
 # job
 set -g tide_jobs_bg_color normal
 set -g tide_jobs_color $foreground
-set -g tide_jobs_icon ''
+set -g tide_jobs_icon 
 
 # kubectl
 set -g tide_kubectl_bg_color normal
-set -g tide_kubectl_color 316de6
-set -g tide_kubectl_icon '⎈'
+set -g tide_kubectl_color 326ce5
+set -g tide_kubectl_icon ⎈
 
 # node
 set -g tide_node_bg_color normal
-set -g tide_node_color 026e00
-set -g tide_node_icon '⬢'
+set -g tide_node_color 44883e
+set -g tide_node_icon ⬢
 
 # pwd
 set -g tide_pwd_bg_color normal
@@ -86,13 +98,13 @@ set -g tide_pwd_color_dirs $cyan
 set -g tide_pwd_color_truncated_dirs $comment
 set -g tide_pwd_icon
 set -g tide_pwd_icon_home
-set -g tide_pwd_icon_unwritable ''
-set -g tide_pwd_markers .git package.json
+set -g tide_pwd_icon_unwritable 
+set -g tide_pwd_markers '.git'  'package.json'
 
 # status
 set -g tide_status_bg_color normal
 set -g tide_status_bg_color_failure normal
 set -g tide_status_color $green
 set -g tide_status_color_failure $red
-set -g tide_status_icon '✔'
-set -g tide_status_icon_failure '✘'
+set -g tide_status_icon ✔
+set -g tide_status_icon_failure ✘

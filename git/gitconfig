@@ -11,13 +11,14 @@
     rebase = true
 [push]
     default = upstream
+    autoSetupRemote = true
 [diff]
     colorMoved = default
     compactionHeuristic = true
 [merge]
-    tool = vscode
-[mergetool "vscode"]
-    cmd = code --wait $MERGED
+  tool = code
+[mergetool "code"]
+  cmd = code --wait --merge $REMOTE $LOCAL $BASE $MERGED
 [alias]
     b = branch -vv
     ci = commit
