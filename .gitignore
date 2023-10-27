@@ -1,5 +1,5 @@
-Brewfile.lock.json
+# private
+private/
 
-# IDE / OS files
-.vscode
+# misc
 .DS_Store

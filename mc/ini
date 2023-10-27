@@ -83,9 +83,7 @@ editor_filesize_threshold=64M
 editor_stop_format_chars=-+*\\,.;:&>
 mcview_eof=
 skin=dracula256
-
 filepos_max_saved_entries=1024
-
 shadows=true
 
 [Layout]
@@ -98,7 +96,7 @@ menubar_visible=true
 free_space=true
 horizontal_split=false
 vertical_equal=true
-left_panel_size=71
+left_panel_size=70
 horizontal_equal=true
 top_panel_size=1
 
@@ -138,6 +136,7 @@ permission_mode=false
 torben_fj_mode=false
 quick_search_mode=2
 select_flags=6
+simple_swap=false
 
 [Panelize]
 Изменённые файлы под контролем git=git ls-files --modified

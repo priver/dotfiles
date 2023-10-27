@@ -1,8 +1,7 @@
+Include ~/.colima/ssh_config
+Include config.d/*
+
 Host *
   SendEnv LANG LC_*
-  ForwardAgent yes
   ForwardX11 no
   AddKeysToAgent yes
-
-Host *.devmail.ru
-  User m.priver

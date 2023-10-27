@@ -1,60 +1,56 @@
 install: \
+	config-homebrew \
 	install-homebrew \
-	install-fisher
+	install-zsh
 
 config: \
-	config-bash \
+	config-zsh \
 	config-editorconfig \
-	config-fish \
 	config-git \
 	config-mc \
 	config-nano \
 	config-ssh
 
+config-homebrew:
+ifeq ($(shell uname),Darwin)
+	ln -sf $(PWD)/homebrew/Brewfile ~/Brewfile
+endif
+
 install-homebrew:
 ifeq ($(shell uname),Darwin)
 	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-	brew bundle --file=$(PWD)/homebrew/Brewfile
+	brew bundle --file=~/Brewfile
 endif
 
-install-fisher:
-ifneq ($(shell which fish),)
-	fish -c "curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher"
-endif
+install-zsh:
+	sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+	git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/.oh-my-zsh/custom/themes/powerlevel10k
+	git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+	git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
 
-config-bash:
-	ln -sf $(PWD)/bash/bash_aliases ~/.bash_aliases
-	ln -sf $(PWD)/bash/bashrc ~/.bashrc
-	ln -sf $(PWD)/bash/profile ~/.profile
+	corepack enable
+	pnpm install-completion zsh
+
+config-zsh:
+	ln -sf $(PWD)/zsh/p10k.zsh ~/.p10k.zsh
+	ln -sf $(PWD)/zsh/zshrc ~/.zshrc
 
 config-editorconfig:
 	ln -sf $(PWD)/.editorconfig ~/.editorconfig
-
-config-fish:
-ifneq ($(shell which fish),)
-	ln -sf $(PWD)/fish/functions/* ~/.config/fish/functions/
-	ln -sf $(PWD)/fish/conf.d/* ~/.config/fish/conf.d/
-	ln -sf $(PWD)/fish/fish_plugins ~/.config/fish/fish_plugins
-ifeq ($(shell grep $(shell which fish) /etc/shells),)
-	which fish | sudo tee -a /etc/shells
-	chsh -s $(shell which fish)
-endif
-	fish -c "fisher update"
-endif
 
 config-git:
 ifeq ($(shell uname),Darwin)
 	ln -sf $(PWD)/git/gitconfig ~/.gitconfig
 endif
 
-config-nano:
-	ln -sf $(PWD)/nano/nanorc ~/.nanorc
-
 config-mc:
 	mkdir -p  ~/.local/share/mc/skins
 	mkdir -p  ~/.config/mc
 	ln -sf $(PWD)/mc/dracula256.ini ~/.local/share/mc/skins/dracula256.ini
 	ln -sf $(PWD)/mc/ini ~/.config/mc/ini
+
+config-nano:
+	ln -sf $(PWD)/nano/nanorc ~/.nanorc
 
 config-ssh:
 ifeq ($(shell uname),Darwin)

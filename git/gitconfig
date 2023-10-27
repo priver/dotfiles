@@ -1,47 +1,53 @@
-[user]
-    useconfigonly = true
 [core]
-    autocrlf = input
-    editor = nano
-    pager = delta
-    precomposeUnicode = true
-[interactive]
-    diffFilter = delta --color-only --features=interactive
-[pull]
-    rebase = true
-[push]
-    default = upstream
-    autoSetupRemote = true
+  precomposeUnicode = true
+  autocrlf = input
+  editor = code --wait
+  pager = delta
+[alias]
+  b = branch -vv
+  ci = commit
+  co = checkout
+  count = shortlog -sn
+  l = log --pretty=format:'%C(auto)%h%d %C(blue)%aN%C(reset) %s %C(dim)(%cr)%C(reset)'
+  lg = log --graph --pretty=format:'%C(auto)%h%d %C(blue)%aN%C(reset) %s %C(dim)(%cr)%C(reset)'
+  lt = log --tags --simplify-by-decoration --pretty=format:'%C(auto)%h%d %C(blue)%aN%C(reset) %s %C(dim)(%cr)%C(reset)'
+  s = status -bs
+[color]
+  ui = auto
+[color "status"]
+  added = green bold
+  changed = yellow
+  untracked = blue bold
 [diff]
-    colorMoved = default
-    compactionHeuristic = true
+  tool = code
+[difftool "code"]
+  cmd = code --wait --diff $LOCAL $REMOTE
+[init]
+  defaultBranch = main
+[interactive]
+  diffFilter = delta --color-only
 [merge]
+  conflictstyle = diff3
   tool = code
 [mergetool "code"]
   cmd = code --wait --merge $REMOTE $LOCAL $BASE $MERGED
-[alias]
-    b = branch -vv
-    ci = commit
-    co = checkout
-    count = shortlog -sn
-    l = log --pretty=format:'%C(auto)%h%d %C(blue)%aN%C(reset) %s %C(dim)(%cr)%C(reset)'
-    lg = log --graph --pretty=format:'%C(auto)%h%d %C(blue)%aN%C(reset) %s %C(dim)(%cr)%C(reset)'
-    lt = log --tags --simplify-by-decoration --pretty=format:'%C(auto)%h%d %C(blue)%aN%C(reset) %s %C(dim)(%cr)%C(reset)'
-    s = status -bs
-[color]
-    ui = auto
-[color "status"]
-    added = green bold
-    changed = yellow
-    untracked = blue bold
+[pull]
+  rebase = true
+[push]
+  default = upstream
+  autoSetupRemote = true
+[user]
+  email = m.priver@gmail.com
+  name = Mikhail Priver
+  useconfigonly = true
 [filter "lfs"]
-    clean = git-lfs clean -- %f
-    smudge = git-lfs smudge -- %f
-    process = git-lfs filter-process
-    required = true
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
+  required = true
 [delta]
-    syntax-theme = Dracula
-    line-numbers = true
-    decorations = true
-[init]
-	defaultBranch = master
+  line-numbers = true
+  hyperlinks = true
+  hyperlinks-file-link-format = "vscode://file/{path}:{line}"
+  syntax-theme = Monokai Extended
+  navigate = true
