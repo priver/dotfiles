@@ -1,6 +1,9 @@
+apt := $(shell command -v apt 2> /dev/null)
+
 install: \
 	config-homebrew \
 	install-homebrew \
+	install-apt \
 	install-zsh
 
 config: \
@@ -20,6 +23,13 @@ install-homebrew:
 ifeq ($(shell uname),Darwin)
 	curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh | bash
 	brew bundle --file=~/Brewfile
+endif
+
+install-apt:
+ifdef apt
+	sudo apt -y install zsh batcat fd-find ripgrep
+	sudo ln -s /usr/bin/batcat /usr/local/bin/bat
+	sudo ln -s /usr/bin/fdfind /usr/local/bin/fd
 endif
 
 install-zsh:
