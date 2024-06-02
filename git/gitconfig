@@ -2,30 +2,58 @@
   precomposeUnicode = true
   autocrlf = input
   editor = code --wait
-  pager = delta
+  pager = diff-so-fancy | less --pattern '^(Date|added|deleted|modified): '
 [alias]
-  b = branch -vv
-  ci = commit
-  co = checkout
-  count = shortlog -sn
-  l = log --pretty=format:'%C(auto)%h%d %C(blue)%aN%C(reset) %s %C(dim)(%cr)%C(reset)'
-  lg = log --graph --pretty=format:'%C(auto)%h%d %C(blue)%aN%C(reset) %s %C(dim)(%cr)%C(reset)'
-  lt = log --tags --simplify-by-decoration --pretty=format:'%C(auto)%h%d %C(blue)%aN%C(reset) %s %C(dim)(%cr)%C(reset)'
   s = status -bs
+  b = branch -vv
+  m = switch main
+  sw = "!git branch --list --sort=-committerdate --format='%(refname:short)' | fzf --nth 1 | xargs git switch"
+  co = checkout
+  ci = commit
+  l = log --pretty=format:'%C(auto)%h%d %C(blue)%aN%C(reset) %s %C(dim)(%cr)%C(reset)'
+  lg = l --graph
+  lt = l --tags --simplify-by-decoration
+  lst = l --stat
+  in = lst HEAD..HEAD@{u}
+	out = lst HEAD@{u}..HEAD
+	lasttag = describe --tags --abbrev=0
+	authors = shortlog -sn
+  patch = !git --no-pager diff --no-color
+  cleanup = "!git branch --list --omit-empty --format='%(if:equals=[gone])%(upstream:track)%(then)%(refname:short)%(end)' | xargs git branch --delete --force"
 [color]
   ui = auto
+[color "diff-highlight"]
+  oldNormal = red bold
+  oldHighlight = red bold 52
+  newNormal = green bold
+  newHighlight = green bold 22
+[color "diff"]
+  meta = 11
+  frag = magenta bold
+  func = 146 bold
+  commit = yellow bold
+  old = red bold
+  new = green bold
+  whitespace = red reverse
 [color "status"]
-  added = green bold
+  added = green
   changed = yellow
-  untracked = blue bold
+  untracked = blue
 [diff]
   tool = code
 [difftool "code"]
   cmd = code --wait --diff $LOCAL $REMOTE
+[fetch]
+  prune = true
+[filter "lfs"]
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
+  required = true
 [init]
   defaultBranch = main
 [interactive]
-  diffFilter = delta --color-only
+  diffFilter = diff-so-fancy --patch
 [merge]
   conflictstyle = diff3
   tool = code
@@ -40,15 +68,3 @@
   email = m.priver@gmail.com
   name = Mikhail Priver
   useconfigonly = true
-[filter "lfs"]
-  clean = git-lfs clean -- %f
-  smudge = git-lfs smudge -- %f
-  process = git-lfs filter-process
-  required = true
-[delta]
-  true-color = always
-  line-numbers = true
-  hyperlinks = true
-  hyperlinks-file-link-format = "vscode://file/{path}:{line}"
-  syntax-theme = Monokai Extended
-  navigate = true

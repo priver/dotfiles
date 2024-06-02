@@ -1,0 +1,9 @@
+zmodule sindresorhus/pure
+zmodule so-fancy/diff-so-fancy
+zmodule archive
+zmodule pvenv
+zmodule ohmyzsh/ohmyzsh --root plugins/httpie --fpath . --on-pull 'chmod 755 ./_httpie'
+zmodule completion
+zmodule g-plane/pnpm-shell-completion --on-pull ./zplug.zsh
+zmodule zsh-users/zsh-syntax-highlighting
+zmodule zsh-users/zsh-autosuggestions

@@ -5,7 +5,7 @@ auto_save_setup=true
 preallocate_space=false
 auto_menu=false
 use_internal_view=true
-use_internal_edit=true
+use_internal_edit=false
 clear_before_exec=true
 confirm_delete=true
 confirm_overwrite=true
@@ -82,9 +82,10 @@ editor_backup_extension=~
 editor_filesize_threshold=64M
 editor_stop_format_chars=-+*\\,.;:&>
 mcview_eof=
-skin=dracula256
+skin=gray-green-purple256
 filepos_max_saved_entries=1024
 shadows=true
+shell_directory_timeout=100
 
 [Layout]
 message_visible=true
@@ -96,7 +97,7 @@ menubar_visible=true
 free_space=true
 horizontal_split=false
 vertical_equal=true
-left_panel_size=70
+left_panel_size=80
 horizontal_equal=true
 top_panel_size=1
 
@@ -139,7 +140,7 @@ select_flags=6
 simple_swap=false
 
 [Panelize]
-Изменённые файлы под контролем git=git ls-files --modified
-Найти корректуры, отвергнутые командой patch=find . -name \\*.rej -print
-Найти оригиналы (*.orig) после команды patch=find . -name \\*.orig -print
-Найти программы с установленными SUID/SGID битами=find . \\( \\( -perm -04000 -a -perm /011 \\) -o \\( -perm -02000 -a -perm /01 \\) \\) -print
+Modified git files=git ls-files --modified
+Find SUID and SGID programs=find . \\( \\( -perm -04000 -a -perm /011 \\) -o \\( -perm -02000 -a -perm /01 \\) \\) -print
+Find *.orig after patching=find . -name \\*.orig -print
+Find rejects after patching=find . -name \\*.rej -print

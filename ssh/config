@@ -5,3 +5,9 @@ Host *
   SendEnv LANG LC_*
   ForwardX11 no
   AddKeysToAgent yes
+
+Host *.priver.org
+  User priver
+
+Host *.mprvr.net
+  User priver
