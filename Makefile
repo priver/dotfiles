@@ -34,7 +34,7 @@ ifeq ($(shell uname),Darwin)
 endif
 
 install-iterm2:
-	curl -L https://iterm2.com/shell_integration/zsh -o ~/.iterm2_shell_integration.zsh
+	curl -fsSL https://iterm2.com/shell_integration/zsh -o ~/.iterm2_shell_integration.zsh
 
 config-editorconfig:
 	ln -sf $(PWD)/.editorconfig ~/.editorconfig
@@ -62,5 +62,6 @@ ifeq ($(shell uname),Darwin)
 endif
 
 config-zsh:
+	ln -sf $(PWD)/zsh/priver.zsh-theme ~/priver.zsh-theme
 	ln -sf $(PWD)/zsh/zimrc ~/.zimrc
 	ln -sf $(PWD)/zsh/zshrc ~/.zshrc

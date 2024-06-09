@@ -2,9 +2,11 @@
   precomposeUnicode = true
   autocrlf = input
   editor = code --wait
-  pager = diff-so-fancy | less --pattern '^(Date|added|deleted|modified): '
+  pager = diff-so-fancy | less
 [alias]
   s = status -bs
+  d = diff
+  dc = diff --cached
   b = branch -vv
   m = switch main
   sw = "!git branch --list --sort=-committerdate --format='%(refname:short)' | fzf --nth 1 | xargs git switch"
@@ -18,7 +20,6 @@
 	out = lst HEAD@{u}..HEAD
 	lasttag = describe --tags --abbrev=0
 	authors = shortlog -sn
-  patch = !git --no-pager diff --no-color
   cleanup = "!git branch --list --omit-empty --format='%(if:equals=[gone])%(upstream:track)%(then)%(refname:short)%(end)' | xargs git branch --delete --force"
 [color]
   ui = auto
@@ -55,7 +56,7 @@
 [interactive]
   diffFilter = diff-so-fancy --patch
 [merge]
-  conflictstyle = diff3
+  conflictstyle = merge
   tool = code
 [mergetool "code"]
   cmd = code --wait --merge $REMOTE $LOCAL $BASE $MERGED
