@@ -6,6 +6,8 @@
 	<true/>
 	<key>AutoComposer</key>
 	<false/>
+	<key>BracketedPasteMode</key>
+	<true/>
 	<key>Custom Color Presets</key>
 	<dict>
 		<key>Snazzy</key>
@@ -359,6 +361,8 @@
 	<key>DoubleClickPerformsSmartSelection</key>
 	<false/>
 	<key>EnableProxyIcon</key>
+	<false/>
+	<key>EscapeShellCharsWithBackslash</key>
 	<false/>
 	<key>HapticFeedbackForEsc</key>
 	<false/>
@@ -1732,6 +1736,12 @@
 	<false/>
 	<key>OpenNoWindowsAtStartup</key>
 	<true/>
+	<key>PasteSpecialRegex</key>
+	<string></string>
+	<key>PasteSpecialSubstitution</key>
+	<string></string>
+	<key>PasteSpecialUseRegexSubstitution</key>
+	<false/>
 	<key>PointerActions</key>
 	<dict>
 		<key>Button,1,1,,</key>
