@@ -1,7 +1,6 @@
-apt := $(shell command -v apt 2> /dev/null)
+all: install config
 
 install: \
-	install-apt \
 	install-bat \
 	install-homebrew \
 	install-iterm2
@@ -13,13 +12,6 @@ config: \
 	config-mc \
 	config-nano \
 	config-ssh
-
-install-apt:
-ifdef apt
-	sudo apt -y install zsh batcat fd-find ripgrep
-	sudo ln -s /usr/bin/batcat /usr/local/bin/bat
-	sudo ln -s /usr/bin/fdfind /usr/local/bin/fd
-endif
 
 install-bat:
 	mkdir -p $$(bat --config-dir)/themes
