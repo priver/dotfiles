@@ -3,7 +3,6 @@ all: install config
 install: \
 	install-bat \
 	install-homebrew \
-	install-iterm2
 
 config: \
 	config-zsh \
@@ -11,7 +10,8 @@ config: \
 	config-git \
 	config-mc \
 	config-nano \
-	config-ssh
+	config-ssh \
+	config-ghostty
 
 install-bat:
 	mkdir -p $$(bat --config-dir)/themes
@@ -25,11 +25,13 @@ ifeq ($(shell uname),Darwin)
 	brew bundle --file=~/Brewfile
 endif
 
-install-iterm2:
-	curl -fsSL https://iterm2.com/shell_integration/zsh -o ~/.iterm2_shell_integration.zsh
-
 config-editorconfig:
 	ln -sf $(PWD)/.editorconfig ~/.editorconfig
+
+config-ghostty:
+ifeq ($(shell uname),Darwin)
+	ln -sf $(PWD)/ghostty/config ~/.config/ghostty/config
+endif
 
 config-git:
 ifeq ($(shell uname),Darwin)
