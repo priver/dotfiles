@@ -5,5 +5,3 @@ theme = Dracula+
 
 window-width = 120
 window-height = 36
-
-keybind = global:cmd+grave_accent=toggle_quick_terminal

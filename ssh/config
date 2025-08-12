@@ -2,12 +2,7 @@ Include ~/.colima/ssh_config
 Include config.d/*
 
 Host *
+  SetEnv TERM=xterm-256color
   SendEnv LANG LC_*
   ForwardX11 no
   AddKeysToAgent yes
-
-Host *.priver.org
-  User priver
-
-Host *.mprvr.net
-  User priver
