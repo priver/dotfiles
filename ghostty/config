@@ -5,3 +5,4 @@ theme = Snazzy Soft
 
 window-width = 120
 window-height = 36
+keybind = shift+enter=text:\x1b\r
