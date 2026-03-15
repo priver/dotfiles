@@ -1,8 +1,17 @@
 font-family = JetBrains Mono
 font-feature = -calt
 
-theme = Snazzy Soft
+minimum-contrast = 2
 
-window-width = 120
-window-height = 36
-keybind = shift+enter=text:\x1b\r
+theme = Dracula+
+
+window-width = 150
+window-height = 40
+
+quick-terminal-position = right
+quick-terminal-size = 800px
+quick-terminal-autohide = false
+
+keybind = global:cmd+backquote=toggle_quick_terminal
+
+shell-integration-features = sudo,ssh-terminfo,ssh-env

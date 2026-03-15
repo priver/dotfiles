@@ -2,7 +2,6 @@ Include ~/.colima/ssh_config
 Include config.d/*
 
 Host *
-  SetEnv TERM=xterm-256color
   SendEnv LANG LC_*
   ForwardX11 no
   AddKeysToAgent yes

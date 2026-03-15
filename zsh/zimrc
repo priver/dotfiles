@@ -1,4 +1,5 @@
-zmodule sindresorhus/pure --source async.zsh --source pure.zsh
+zmodule mafredri/zsh-async --source async.zsh
+zmodule romkatv/powerlevel10k
 zmodule so-fancy/diff-so-fancy --no-submodules
 zmodule archive
 zmodule pvenv

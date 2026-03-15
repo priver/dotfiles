@@ -1,22 +1,16 @@
 all: install config
 
-install: \
-	install-bat \
-	install-homebrew \
+install: install-homebrew
 
 config: \
 	config-zsh \
+	config-bat \
 	config-editorconfig \
+	config-ghostty \
 	config-git \
 	config-mc \
 	config-nano \
-	config-ssh \
-	config-ghostty
-
-install-bat:
-	mkdir -p $$(bat --config-dir)/themes
-	ln -sf $(PWD)/bat/GitHubDark.tmTheme $$(bat --config-dir)/themes
-	bat cache --build
+	config-ssh
 
 install-homebrew:
 ifeq ($(shell uname),Darwin)
@@ -24,6 +18,9 @@ ifeq ($(shell uname),Darwin)
 	ln -sf $(PWD)/homebrew/Brewfile ~/Brewfile
 	brew bundle --file=~/Brewfile
 endif
+
+config-bat:
+	ln -sf $(PWD)/bat/config $$(bat --config-dir)/config
 
 config-editorconfig:
 	ln -sf $(PWD)/.editorconfig ~/.editorconfig
@@ -56,6 +53,6 @@ ifeq ($(shell uname),Darwin)
 endif
 
 config-zsh:
-	ln -sf $(PWD)/zsh/priver.zsh-theme ~/priver.zsh-theme
+	ln -sf $(PWD)/zsh/p10k.zsh ~/.p10k.zsh
 	ln -sf $(PWD)/zsh/zimrc ~/.zimrc
 	ln -sf $(PWD)/zsh/zshrc ~/.zshrc

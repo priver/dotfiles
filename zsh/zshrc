@@ -1,127 +1,62 @@
 # --------------------------------------------------------------------------------------------------
-# locale
+# powerlevel10k instant prompt
+# --------------------------------------------------------------------------------------------------
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
+# --------------------------------------------------------------------------------------------------
+# environment
 # --------------------------------------------------------------------------------------------------
 export LANG=en_US.UTF-8
 export LC_CTYPE=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 
-# --------------------------------------------------------------------------------------------------
-# local
-# --------------------------------------------------------------------------------------------------
-[[ -f ~/.zshrc.local.zsh ]] && source ~/.zshrc.local.zsh
+typeset -U path PATH
+path=("$HOME/.local/bin" "${path[@]}")
 
-# --------------------------------------------------------------------------------------------------
-# bin
-# --------------------------------------------------------------------------------------------------
-export PATH="$HOME/.local/bin:$PATH"
+export PROJECTS="$HOME/projects"
+
+export ZIM_HOME="$HOME/.zim"
+
+export PNPM_HOME="$HOME/Library/pnpm"
+path+=("$PNPM_HOME")
 
 # --------------------------------------------------------------------------------------------------
 # homebrew
 # --------------------------------------------------------------------------------------------------
-if (( ! $+commands[brew] )); then
-  [[ -x /opt/homebrew/bin/brew ]] && eval "$(/opt/homebrew/bin/brew shellenv)"
-fi
-
-if (( $+commands[brew] )); then
-  export HOMEBREW_PREFIX="$(brew --prefix)"
+if [[ -x /opt/homebrew/bin/brew ]]; then
+  eval "$(/opt/homebrew/bin/brew shellenv)"
   export HOMEBREW_AUTO_UPDATE_SECS=86400
-fi
-
-if [[ -d "$HOMEBREW_PREFIX/share/zsh/site-functions" ]]; then
-  fpath+=("$HOMEBREW_PREFIX/share/zsh/site-functions")
 fi
 
 # --------------------------------------------------------------------------------------------------
 # zimfw
 # --------------------------------------------------------------------------------------------------
-ZIM_HOME=~/.zim
-
 zstyle ':zim:zmodule' use 'degit'
 
-if [[ ! -e ${ZIM_HOME}/zimfw.zsh ]]; then
-  curl -fsSL --create-dirs -o ${ZIM_HOME}/zimfw.zsh \
-      https://github.com/zimfw/zimfw/releases/latest/download/zimfw.zsh
+if [[ ! -e "$ZIM_HOME/zimfw.zsh" ]]; then
+  command curl -fsSL --create-dirs -o "$ZIM_HOME/zimfw.zsh" \
+    https://github.com/zimfw/zimfw/releases/latest/download/zimfw.zsh
 fi
 
-if [[ ! ${ZIM_HOME}/init.zsh -nt ${ZIM_CONFIG_FILE:-${ZDOTDIR:-${HOME}}/.zimrc} ]]; then
-  source ${ZIM_HOME}/zimfw.zsh init -q
+if [[ ! "$ZIM_HOME/init.zsh" -nt "${ZIM_CONFIG_FILE:-${ZDOTDIR:-$HOME}/.zimrc}" ]]; then
+  source "$ZIM_HOME/zimfw.zsh" init -q
 fi
 
-source ${ZIM_HOME}/init.zsh
-
-# --------------------------------------------------------------------------------------------------
-# input/output
-# --------------------------------------------------------------------------------------------------
-setopt INTERACTIVE_COMMENTS
-setopt NO_CLOBBER
-
-# --------------------------------------------------------------------------------------------------
-# jobs
-# --------------------------------------------------------------------------------------------------
-setopt LONG_LIST_JOBS
-setopt NO_BG_NICE
-setopt NO_CHECK_JOBS
-setopt NO_HUP
+source "$ZIM_HOME/init.zsh"
 
 # --------------------------------------------------------------------------------------------------
 # prompt
 # --------------------------------------------------------------------------------------------------
-zstyle :prompt:pure:git:stash show yes
+[[ -f "$HOME/.p10k.zsh" ]] && source "$HOME/.p10k.zsh"
 
 # --------------------------------------------------------------------------------------------------
-# ls
+# shell options
 # --------------------------------------------------------------------------------------------------
-if whence dircolors >/dev/null && ls --version &>/dev/null; then
-  # GNU
-  export LS_COLORS='di=1;34:ln=35:so=32:pi=33:ex=31:bd=1;36:cd=1;33:su=30;41:sg=30;46:tw=30;42:ow=30;43'
-  alias ls='ls --group-directories-first --color=auto'
-else
-  # BSD
-  export CLICOLOR=1
-  export LSCOLORS=ExfxcxdxbxGxDxabagacad
-fi
-
-alias l='ls -CF'
-alias ll='ls -lh'
-alias la='ls -lAh'
-
-# --------------------------------------------------------------------------------------------------
-# cd
-# --------------------------------------------------------------------------------------------------
-export PROJECTS="${HOME}/projects"
-
-setopt AUTO_PUSHD
-
-autoload -Uz is-at-least && if is-at-least 5.8; then
-  setopt CD_SILENT
-fi
-
-setopt PUSHD_IGNORE_DUPS
-setopt PUSHD_SILENT
-setopt PUSHD_TO_HOME
-setopt PUSHDMINUS
-
-alias ..='cd ..'
-alias ...='cd ../..'
-alias -- -='cd -'
-alias 1='cd -1'
-alias 2='cd -2'
-alias 3='cd -3'
-alias 4='cd -4'
-alias 5='cd -5'
-alias 6='cd -6'
-alias 7='cd -7'
-alias 8='cd -8'
-alias 9='cd -9'
-alias d='dirs -v | head -n 10'
-alias cdr='cd $(git rev-parse --show-toplevel)'
-
-# --------------------------------------------------------------------------------------------------
-# zoxide
-# --------------------------------------------------------------------------------------------------
-if (( $+commands[zoxide] )); then
-  eval "$(zoxide init zsh)"
-fi
+setopt INTERACTIVE_COMMENTS
+setopt NO_CLOBBER
+setopt LONG_LIST_JOBS
 
 # --------------------------------------------------------------------------------------------------
 # history
@@ -142,23 +77,53 @@ alias h='fc -il'
 # --------------------------------------------------------------------------------------------------
 # editor
 # --------------------------------------------------------------------------------------------------
-if (( ! $+commands[code] )); then
-  export EDITOR='code --wait'
+if (( $+commands[micro] )); then
+  export EDITOR=micro
 else
   export EDITOR=nano
 fi
 
-export GIT_EDITOR="${EDITOR}"
+# --------------------------------------------------------------------------------------------------
+# navigation
+# --------------------------------------------------------------------------------------------------
+setopt AUTO_PUSHD
+setopt PUSHD_IGNORE_DUPS
+setopt PUSHD_SILENT
+setopt PUSHD_TO_HOME
 
-if [[ "$TERM_PROGRAM" == "vscode" ]]; then
-  export GIT_PAGER=cat
+alias ..='cd ..'
+alias ...='cd ../..'
+alias -- -='cd -'
+alias 1='cd -1'
+alias 2='cd -2'
+alias 3='cd -3'
+alias 4='cd -4'
+alias 5='cd -5'
+alias 6='cd -6'
+alias 7='cd -7'
+alias 8='cd -8'
+alias 9='cd -9'
+
+d() {
+  dirs -v | command head -n 10
+}
+
+cdr() {
+  local root
+
+  root=$(command git rev-parse --show-toplevel 2>/dev/null) || return 1
+  cd "$root" || return 1
+}
+
+if (( $+commands[zoxide] )); then
+  eval "$(zoxide init zsh)"
 fi
 
 # --------------------------------------------------------------------------------------------------
 # less
 # --------------------------------------------------------------------------------------------------
 export PAGER=less
-export LESS="FRSj2x2"
+export LESS='FRSj2x2'
 
 export LESS_TERMCAP_mb=$'\E[1;31m'  # Begins blinking.
 export LESS_TERMCAP_md=$'\E[1;31m'  # Begins bold.
@@ -166,21 +131,44 @@ export LESS_TERMCAP_me=$'\E[0m'     # Ends mode.
 export LESS_TERMCAP_ue=$'\E[0m'     # Ends underline.
 export LESS_TERMCAP_us=$'\E[1;32m'  # Begins underline.
 
+if [[ $TERM_PROGRAM == vscode ]]; then
+  export GIT_PAGER=cat
+fi
+
+# --------------------------------------------------------------------------------------------------
+# ls
+# --------------------------------------------------------------------------------------------------
+if (( $+commands[dircolors] )) && command ls --version &>/dev/null; then
+  # GNU
+  export LS_COLORS='di=1;34:ln=35:so=32:pi=33:ex=31:bd=1;36:cd=1;33:su=30;41:sg=30;46:tw=30;42:ow=30;43'
+  alias ls='ls --group-directories-first --color=auto'
+else
+  # BSD
+  export CLICOLOR=1
+  export LSCOLORS=ExfxcxdxbxGxDxabagacad
+fi
+
+alias l='ls -CF'
+alias ll='ls -lh'
+alias la='ls -lAh'
+
 # --------------------------------------------------------------------------------------------------
 # grep
 # --------------------------------------------------------------------------------------------------
-export GREP_COLOR='37;45'              #BSD
-export GREP_COLORS="mt=${GREP_COLOR}"  #GNU
+export GREP_COLOR='37;45'              # BSD
+export GREP_COLORS="mt=${GREP_COLOR}"  # GNU
 
-alias grep='grep --color=auto'
-alias egrep='grep -E --color=auto'
-alias fgrep='grep -F --color=auto'
+if (( $+commands[ggrep] )); then
+  alias grep='ggrep --color=auto'
+elif command grep --version &>/dev/null; then
+  alias grep='grep --color=auto'
+fi
 
 # --------------------------------------------------------------------------------------------------
 # bat
 # --------------------------------------------------------------------------------------------------
 if (( $+commands[bat] )); then
-  export BAT_THEME='GitHubDark'
+  export MANROFFOPT="-c"
   export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 fi
 
@@ -188,19 +176,19 @@ fi
 # fzf
 # --------------------------------------------------------------------------------------------------
 if (( $+commands[fzf] )); then
-  export FZF_DEFAULT_OPTS="--cycle --layout=reverse --border --height=50%"
+  export FZF_DEFAULT_OPTS='--cycle --layout=reverse --border --height=50%'
 
   if (( $+commands[fd] )); then
     export FZF_DEFAULT_COMMAND='fd --type f --strip-cwd-prefix --hidden --exclude .git --exclude node_modules'
-    export FZF_CTRL_T_COMMAND="${FZF_DEFAULT_COMMAND}"
+    export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
     export FZF_ALT_C_COMMAND='fd --type d --strip-cwd-prefix --hidden --exclude .git --exclude node_modules'
 
     _fzf_compgen_path() {
-      fd --type f --type d --hidden --exclude .git --exclude node_modules . ${1}
+      fd --type f --type d --hidden --exclude .git --exclude node_modules . "$1"
     }
 
     _fzf_compgen_dir() {
-      fd --type d --hidden --exclude .git --exclude node_modules  . ${1}
+      fd --type d --hidden --exclude .git --exclude node_modules . "$1"
     }
   fi
 
@@ -219,25 +207,18 @@ fi
 # fnm
 # --------------------------------------------------------------------------------------------------
 if (( $+commands[fnm] )); then
-  eval "$(fnm env --corepack-enabled --use-on-cd)"
+  eval "$(fnm env --corepack-enabled --use-on-cd)" >/dev/null 2>&1
 fi
-
-# --------------------------------------------------------------------------------------------------
-# pnpm
-# --------------------------------------------------------------------------------------------------
-export PNPM_HOME="${HOME}/Library/pnpm"
-path+=("${PNPM_HOME}")
-export PATH
 
 # --------------------------------------------------------------------------------------------------
 # yandex-cloud
 # --------------------------------------------------------------------------------------------------
-if [ -f '~/yandex-cloud/path.bash.inc' ]; then
-  source '~/yandex-cloud/path.bash.inc'
+if [[ -f "$HOME/yandex-cloud/path.bash.inc" ]]; then
+  source "$HOME/yandex-cloud/path.bash.inc"
 fi
 
-if [ -f '~/yandex-cloud/completion.zsh.inc' ]; then
-  source '~/yandex-cloud/completion.zsh.inc'
+if [[ -f "$HOME/yandex-cloud/completion.zsh.inc" ]]; then
+  source "$HOME/yandex-cloud/completion.zsh.inc"
 fi
 
 # --------------------------------------------------------------------------------------------------
@@ -245,3 +226,8 @@ fi
 # --------------------------------------------------------------------------------------------------
 alias headers='http --print=Hh'
 alias listening='sudo lsof -iTCP -sTCP:LISTEN -n -P'
+
+# --------------------------------------------------------------------------------------------------
+# local
+# --------------------------------------------------------------------------------------------------
+[[ -f "$HOME/.zshrc.local.zsh" ]] && source "$HOME/.zshrc.local.zsh"
