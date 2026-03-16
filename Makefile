@@ -25,6 +25,9 @@ config-bat:
 config-editorconfig:
 	ln -sf $(PWD)/.editorconfig ~/.editorconfig
 
+config-fresh:
+	ln -sf $(PWD)/fresh/config.json ~/.config/fresh/config.json
+
 config-ghostty:
 ifeq ($(shell uname),Darwin)
 	ln -sf $(PWD)/ghostty/config ~/.config/ghostty/config

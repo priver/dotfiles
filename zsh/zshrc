@@ -77,8 +77,8 @@ alias h='fc -il'
 # --------------------------------------------------------------------------------------------------
 # editor
 # --------------------------------------------------------------------------------------------------
-if (( $+commands[micro] )); then
-  export EDITOR=micro
+if (( $+commands[fresh] )); then
+  export EDITOR=fresh
 else
   export EDITOR=nano
 fi

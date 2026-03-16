@@ -1,0 +1,9 @@
+{
+  "theme": "dracula",
+  "check_for_updates": false,
+  "editor": {
+    "ensure_final_newline_on_save": true,
+    "tab_size": 2,
+    "trim_trailing_whitespace_on_save": true
+  }
+}
