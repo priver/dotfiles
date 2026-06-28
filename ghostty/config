@@ -8,10 +8,4 @@ theme = Dracula+
 window-width = 150
 window-height = 40
 
-quick-terminal-position = right
-quick-terminal-size = 800px
-quick-terminal-autohide = false
-
-keybind = global:cmd+backquote=toggle_quick_terminal
-
 shell-integration-features = sudo,ssh-terminfo,ssh-env
