@@ -227,6 +227,7 @@ fi
 # --------------------------------------------------------------------------------------------------
 alias headers='http --print=Hh'
 alias listening='sudo lsof -iTCP -sTCP:LISTEN -n -P'
+alias bearcli='/Applications/Bear.app/Contents/MacOS/bearcli'
 
 # --------------------------------------------------------------------------------------------------
 # local
