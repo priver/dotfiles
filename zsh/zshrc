@@ -25,7 +25,7 @@ export OPENCODE_EXPERIMENTAL_LSP_TOOL=true
 export OPENCODE_EXPERIMENTAL_OXFMT=true
 
 export PNPM_HOME="$HOME/Library/pnpm"
-path+=("$PNPM_HOME")
+path+=("$PNPM_HOME/bin")
 
 # --------------------------------------------------------------------------------------------------
 # homebrew
