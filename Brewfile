@@ -63,6 +63,8 @@ brew "nano"
 brew "podman"
 # Search tool like grep and The Silver Searcher
 brew "ripgrep"
+# Organize software neatly under a single directory tree (e.g. /usr/local)
+brew "stow"
 # User interface to the TELNET protocol
 brew "telnet"
 # Simplified and community-driven man pages
