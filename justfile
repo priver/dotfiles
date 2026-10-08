@@ -5,14 +5,17 @@ default:
   @just --list
 
 # Install packages from the Brewfile.
+[macos]
 brew:
   brew bundle
 
 # Stow the macOS packages.
-stow-macos: (stow "bat" "editorconfig" "ghostty" "git" "karabiner" "mc" "nano" "ssh" "zsh")
+[macos]
+stow-all: (stow "bat" "editorconfig" "ghostty" "git" "karabiner" "mc" "nano" "ssh" "zsh")
 
 # Stow the Debian packages.
-stow-debian: (stow "bat" "editorconfig" "mc" "nano-debian" "zsh")
+[linux]
+stow-all: (stow "bat" "editorconfig" "mc" "nano-debian" "zsh")
 
 # Stow one or more packages.
 stow +packages:

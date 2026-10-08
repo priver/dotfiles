@@ -34,17 +34,13 @@ cd ~/.dotfiles
 just
 ```
 
-Stow packages on macOS:
+Stow packages for the current OS:
 
 ```sh
-just stow-macos
+just stow-all
 ```
 
-Stow packages on Debian:
-
-```sh
-just stow-debian
-```
+This selects the macOS package set on macOS and the Debian package set on Linux.
 
 Stow one or more packages:
 
@@ -64,7 +60,7 @@ Unstow one or more packages:
 just unstow bat zsh
 ```
 
-Install packages from the Brewfile:
+Install packages from the Brewfile on macOS:
 
 ```sh
 just brew
