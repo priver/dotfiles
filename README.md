@@ -23,39 +23,51 @@ Install packages from the Brewfile:
 brew bundle
 ```
 
+On Debian, install GNU Stow and `just` before using the commands below.
+
 ## Usage
 
-Stow packages from the repo root on macOS:
+List available commands from the repo root:
 
 ```sh
 cd ~/.dotfiles
-mkdir -p ~/.ssh/config.d
-stow bat editorconfig ghostty git karabiner mc nano ssh zsh
+just
 ```
 
-Stow packages from the repo root on Debian:
+Stow packages on macOS:
 
 ```sh
-cd ~/.dotfiles
-stow bat editorconfig mc nano-debian zsh
+just stow-macos
 ```
 
-Stow one package:
+Stow packages on Debian:
 
 ```sh
-stow bat
+just stow-debian
+```
+
+Stow one or more packages:
+
+```sh
+just stow bat zsh
 ```
 
 Preview changes before applying them:
 
 ```sh
-stow -n -v bat
+just preview bat zsh
 ```
 
-Unstow a package:
+Unstow one or more packages:
 
 ```sh
-stow -D bat
+just unstow bat zsh
+```
+
+Install packages from the Brewfile:
+
+```sh
+just brew
 ```
 
 ## Packages
@@ -73,13 +85,13 @@ stow -D bat
 
 ## Notes
 
-Run Stow commands from the repo root. The local `.stowrc` makes Stow target `$HOME`
-without passing `-t "$HOME"` every time.
+The recipes run from the repo root. The local `.stowrc` makes Stow target `$HOME`
+without passing `-t "$HOME"` every time. Run direct Stow commands from the repo root too.
 
 Do not stow `nano` and `nano-debian` together because both manage `~/.nanorc`.
 
-Create `~/.ssh/config.d` before stowing `ssh` so `~/.ssh` stays local and can contain
-machine-specific SSH snippets and keys.
+The Stow recipes create `~/.ssh/config.d` before stowing `ssh` so `~/.ssh` stays local and
+can contain machine-specific SSH snippets and keys. Create it manually when using Stow directly.
 
 Karabiner-Elements may write changes through the symlink when settings are changed in
 the UI.

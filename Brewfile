@@ -47,6 +47,8 @@ brew "imagemagick"
 brew "ipinfo-cli"
 # Lightweight and flexible command-line JSON processor
 brew "jq"
+# Handy way to save and run project-specific commands
+brew "just"
 # Pager program similar to more
 brew "less"
 # Open-source, cross-platform JavaScript runtime environment
