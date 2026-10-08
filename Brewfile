@@ -1,16 +1,22 @@
 tap "anomalyco/tap", trusted: true
+tap "dotenvx/brew", trusted: true
 tap "hashicorp/tap", trusted: true
+tap "ossianhempel/tap"
 
+# Display directories as trees (with optional color/HTML output)
+brew "tree"
 # Automate deployment, configuration, and upgrading
 brew "ansible"
 # Checks ansible playbooks for practices and behaviour
 brew "ansible-lint"
 # Clone of cat(1) with syntax highlighting and Git integration
 brew "bat"
-# Secure and free password manager for all of your devices
-brew "bitwarden-cli"
 # Generic-purpose lossless compression algorithm by Google
 brew "brotli"
+# Open-source, cross-platform JavaScript runtime environment
+brew "node"
+# Secure and free password manager for all of your devices
+brew "bitwarden-cli"
 # Statistics utility to count lines of code
 brew "cloc"
 # Container runtimes on MacOS (and Linux) with minimal setup
@@ -39,6 +45,8 @@ brew "git-lfs"
 brew "glow"
 # GNU grep, egrep and fgrep
 brew "grep"
+# Agent multiplexer that lives in your terminal
+brew "herdr"
 # User-friendly cURL replacement (command-line HTTP client)
 brew "httpie"
 # Tools and libraries to manipulate images in select formats
@@ -51,18 +59,24 @@ brew "jq"
 brew "just"
 # Pager program similar to more
 brew "less"
-# Open-source, cross-platform JavaScript runtime environment
-brew "node"
 # Mac App Store command-line interface
 brew "mas"
 # Terminal-based visual file manager
 brew "midnight-commander"
 # Simple tool to make locally trusted development certificates
 brew "mkcert"
+# Deep clean and optimize your Mac
+brew "mole"
 # Free (GNU) replacement for the Pico text editor
 brew "nano"
+# Fast, disk space efficient package manager
+brew "pnpm"
 # Tool for managing OCI containers and pods
 brew "podman"
+# Show ps output as a tree
+brew "pstree"
+# QR Code generation
+brew "qrencode"
 # Search tool like grep and The Silver Searcher
 brew "ripgrep"
 # Organize software neatly under a single directory tree (e.g. /usr/local)
@@ -71,25 +85,27 @@ brew "stow"
 brew "telnet"
 # Simplified and community-driven man pages
 brew "tldr"
-# Display directories as trees (with optional color/HTML output)
-brew "tree"
+# Extremely fast Python package installer and resolver, written in Rust
+brew "uv"
 # Internet file retriever
 brew "wget"
 # Shell extension to navigate your filesystem faster
 brew "zoxide"
-# The AI coding agent built for the terminal.
-brew "anomalyco/tap/opencode", trusted: true
+# OpenCode V2 - the AI coding agent for the terminal
+brew "anomalyco/tap/opencode-v2", trusted: true
+# Secure dotenv—from the creator of `dotenv`
+brew "dotenvx/brew/dotenvx"
 # Packer
-brew "hashicorp/tap/packer"
+brew "hashicorp/tap/packer", trusted: true
 # Terraform
-brew "hashicorp/tap/terraform"
+brew "hashicorp/tap/terraform", trusted: true
+# CLI for Things 3
+brew "ossianhempel/tap/things3-cli", trusted: true
 
 # OpenAI's official ChatGPT desktop app
 cask "chatgpt"
 # Anthropic's official Claude AI desktop app
 cask "claude"
-# OpenAI's Codex desktop app for managing coding agents
-cask "codex-app"
 # Web browser
 cask "firefox"
 cask "font-inter"
@@ -168,6 +184,7 @@ vscode "ms-vscode.remote-explorer"
 vscode "nefrob.vscode-just-syntax"
 vscode "netcorext.uuid-generator"
 vscode "openai.chatgpt"
+vscode "openai.codex-audio"
 vscode "oxc.oxc-vscode"
 vscode "redhat.ansible"
 vscode "redhat.vscode-yaml"
@@ -176,6 +193,7 @@ vscode "samuelcolvin.jinjahtml"
 vscode "sst-dev.opencode"
 vscode "tombi-toml.tombi"
 vscode "twxs.cmake"
+vscode "typescriptteam.native-preview"
 vscode "unifiedjs.vscode-mdx"
 vscode "unional.vscode-sort-package-json"
 vscode "vercel.turbo-vsc"
