@@ -9,6 +9,8 @@ brew "tree"
 brew "ansible"
 # Checks ansible playbooks for practices and behaviour
 brew "ansible-lint"
+# Official Amazon AWS command-line interface
+brew "awscli"
 # Clone of cat(1) with syntax highlighting and Git integration
 brew "bat"
 # Generic-purpose lossless compression algorithm by Google
@@ -45,8 +47,6 @@ brew "git-lfs"
 brew "glow"
 # GNU grep, egrep and fgrep
 brew "grep"
-# Agent multiplexer that lives in your terminal
-brew "herdr"
 # User-friendly cURL replacement (command-line HTTP client)
 brew "httpie"
 # Tools and libraries to manipulate images in select formats
@@ -106,14 +106,20 @@ brew "ossianhempel/tap/things3-cli", trusted: true
 cask "chatgpt"
 # Anthropic's official Claude AI desktop app
 cask "claude"
+# OpenAI's coding agent that runs in your terminal
+cask "codex"
 # Web browser
 cask "firefox"
 cask "font-inter"
 cask "font-jetbrains-mono-nerd-font"
+# Set of tools to manage resources and applications hosted on Google Cloud
+cask "gcloud-cli"
 # Terminal emulator that uses platform-native UI and GPU acceleration
 cask "ghostty"
 # Chromium-based web browser
 cask "helium-browser"
+# Local voice dictation
+cask "anomalyco/tap/hex", trusted: true
 # Tool to optimise images to a smaller size
 cask "imageoptim"
 # Video and photo editor
@@ -122,8 +128,6 @@ cask "insta360-studio"
 cask "karabiner-elements"
 # Software for Logitech devices
 cask "logi-options+"
-# AI coding agent desktop client
-cask "opencode-desktop"
 # Music streaming service
 cask "spotify"
 # Messaging app with a focus on speed and security
