@@ -66,6 +66,21 @@ Install packages from the Brewfile on macOS:
 just brew
 ```
 
+Install the selected agent skills globally for Codex, Claude Code, Pi, and OpenCode:
+
+```sh
+just skills
+```
+
+Requires Node.js 22.20 or later and pnpm (`pnpx`), both included in the Brewfile.
+The recipe installs without prompts and stops on the first failed command.
+Skills live in `~/.agents/skills`, which Codex, Pi, and OpenCode read directly.
+The installer creates per-skill symlinks in `~/.claude/skills` for Claude Code.
+Other agents that read the shared directory can also discover these skills.
+
+Maintain the skill list in the `skills` recipe's dependencies in `justfile`.
+Each `_skills-add` entry takes a repository URL followed by one or more skill names.
+
 ## Packages
 
 - `bat`: bat configuration
